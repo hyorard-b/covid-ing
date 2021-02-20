@@ -33,7 +33,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
         exclude: /node_modules/
       },
-      /* {
+      {
         test: /\.(png|jpg|gif)$/i,
         use: [
           {
@@ -46,7 +46,7 @@ module.exports = {
             }
           }
         ]
-      } */
+      }
     ]
   },
   devtool: 'source-map',
