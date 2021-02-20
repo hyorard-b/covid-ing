@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
+const process = require('process');
 
 require('dotenv').config();
 
@@ -17,13 +18,17 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({
-    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄'
+    message: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
   });
 });
 
-app.use('/api/v1', api);
+app.use('/', api);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
+
+process.on('exit', (code) => {
+  console.log('Process exit event with code: ', code);
+});
 
 module.exports = app;
