@@ -1,0 +1,25 @@
+@import './common';
+
+.header {
+  @include container;
+
+  height: 90px;
+  padding: 30px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  color: #15b748;
+}
+
+.side-nav-container,
+.dark-mode-container {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
