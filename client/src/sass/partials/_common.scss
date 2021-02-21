@@ -3,3 +3,8 @@ sass에서 정적 이미지
 url('../../media/img/example.PNG')
 로 쓸 수 있게 해놓았음.
 */
+
+@mixin container {
+  margin: 0 auto;
+  width: 720px;
+}
