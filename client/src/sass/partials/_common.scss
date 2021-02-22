@@ -3,6 +3,16 @@ sass에서 정적 이미지
 url('../../media/img/example.PNG')
 로 쓸 수 있게 해놓았음.
 */
+$main-theme: #15b748;
+$main-background: #ffffff;
+$main-light: #fcfcfc;
+$main-dark: #f1f1f1;
+$main-text: #616161;
+$main-border: #868686;
+
+$darkmode-background: #333333;
+$darkmode-light: #7a7a7a;
+$darkmode-dark: #4f4f4f;
 
 html {
   background-color: #eaeaea;
@@ -14,13 +24,7 @@ html {
   background-color: $main-background;
 }
 
-$main-theme: #15b748;
-$main-background: #ffffff;
-$main-light: #fcfcfc;
-$main-dark: #f1f1f1;
-$main-text: #616161;
-$main-border: #868686;
-
-$darkmode-background: #333333;
-$darkmode-light: #7a7a7a;
-$darkmode-dark: #4f4f4f;
+.main-container {
+  @include container;
+  height: 100vh;
+}
