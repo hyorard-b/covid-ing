@@ -4,19 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link href="./dist/css/style.css" rel="stylesheet" />
     <script defer src="./dist/js/bundle.js"></script>
     <title>Covid-ing</title>
   </head>
   <body>
     <div class="content-container">
-      <nav class="side-nav">
+      <nav class="side-nav active">
         <div class="side-nav-header">
           <img
             class="side-header-logo-img"
             src="./media/image/coviding-logo.png"
             alt="헤더 로고"
           />COVID-ING
+        </div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <span class="material-icons"> public </span> 전국
+          </li>
+          <li class="nav-item">
+            <span class="material-icons"> date_range </span>
+            일별/월별 확진자
+          </li>
+          <li class="nav-item">
+            <span class="material-icons"> terrain </span> 지역별 확진자
+          </li>
+        </ul>
+        <div class="close-health">
+          <span class="close-health--heading">인접 선별 진료소</span>
+          <div class="close-health--map"></div>
         </div>
       </nav>
       <section class="header-container">
