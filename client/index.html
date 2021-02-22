@@ -1,68 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link href="./dist/css/style.css" rel="stylesheet" />
-    <script defer src="./dist/js/bundle.js"></script>
-    <link rel=" shortcut icon" href="./media/image/favicon.ico" />
-    <link rel="icon" href="./media/image/favicon.ico" />
-    <title>Covid-ing</title>
-  </head>
-  <body>
-    <div class="content-container">
-      <nav class="side-nav">
-        <div class="side-nav-header">
-          <img
-            class="side-header-logo-img"
-            src="./media/image/coviding-logo.png"
-            alt="헤더 로고"
-          />COVID-ING
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="./dist/css/style.css" rel="stylesheet" />
+  <script defer src="./dist/js/bundle.js"></script>
+  <link rel=" shortcut icon" href="./media/image/favicon.ico" />
+  <link rel="icon" href="./media/image/favicon.ico" />
+  <title>Covid-ing</title>
+</head>
+
+<body>
+  <div class="content-container">
+    <nav class="side-nav">
+      <div class="side-nav-header">
+        <img class="side-header-logo-img" src="./media/image/coviding-logo.png" alt="헤더 로고" />COVID-ING
+      </div>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <span class="material-icons"> public </span> 전국
+        </li>
+        <li class="nav-item">
+          <span class="material-icons"> date_range </span>
+          일별/월별 확진자
+        </li>
+        <li class="nav-item">
+          <span class="material-icons"> terrain </span> 지역별 확진자
+        </li>
+      </ul>
+      <div class="close-health">
+        <span class="close-health--heading">인접 선별 진료소</span>
+        <div class="close-health--map"></div>
+      </div>
+    </nav>
+    <section class="header-container">
+      <header class="header">
+        <div class="side-nav-container">
+          <img class="side-nav-btn" src="./media/image/side-nav-btn.svg" alt="사이드 메뉴 버튼" />
         </div>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <span class="material-icons"> public </span> 전국
-          </li>
-          <li class="nav-item">
-            <span class="material-icons"> date_range </span>
-            일별/월별 확진자
-          </li>
-          <li class="nav-item">
-            <span class="material-icons"> terrain </span> 지역별 확진자
-          </li>
-        </ul>
-        <div class="close-health">
-          <span class="close-health--heading">인접 선별 진료소</span>
-          <div class="close-health--map"></div>
+        <h1>
+          <a class="logo" href="./index.html"><img class="header-logo-img" src="./media/image/coviding-logo.png"
+              alt="헤더 로고" />COVID-ING</a>
+        </h1>
+        <div class="dark-mode-container">
+          <img src="./media/image/dark-mode-btn.svg" alt="다크 모드 버튼" />
         </div>
-      </nav>
-      <section class="header-container">
-        <header class="header">
-          <div class="side-nav-container">
-            <img
-              class="side-nav-btn"
-              src="./media/image/side-nav-btn.svg"
-              alt="사이드 메뉴 버튼"
-            />
-          </div>
-          <h1>
-            <a class="logo" href="./index.html"
-              ><img
-                class="header-logo-img"
-                src="./media/image/coviding-logo.png"
-                alt="헤더 로고"
-              />COVID-ING</a
-            >
-          </h1>
-          <div class="dark-mode-container">
-            <img src="./media/image/dark-mode-btn.svg" alt="다크 모드 버튼" />
-          </div>
-        </header>
+      </header>
       <section class="main-container">
         <section class="section-tab">
           <div class="tab-container">
@@ -86,19 +72,19 @@
               <div class="local__item">
                 <p>서울특별시</p>
               </div>
-            </li>      
+            </li>
             <li>
               <div class="local__item">
                 <p>경기도</p>
                 <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
               </div>
               <div class="local__sub-list">
-                <div class="local__details">인천광역시</div>        
+                <div class="local__details">인천광역시</div>
               </div>
             </li>
             <li>
               <div class="local__item">
-                <p>강원도</p>                  
+                <p>강원도</p>
               </div>
             </li>
             <li>
@@ -145,6 +131,29 @@
           </ul>
         </section>
       </section>
+      <section class="popup-container">
+        <div class="popup">
+          <label for="light-btn" class="light-label labels">
+            <span class="material-icons dark-mode-icon">
+              light_mode
+            </span>
+            <span class="light-mode-text">라이트 모드</span>
+          </label>
+          <input type="radio" class="popup-btn" id="light-btn" name="dark-mode" checked="checked">
+          <label for="dark-btn" class="dark-label labels">
+            <span class="material-icons dark-mode-icon">
+              dark_mode
+            </span>
+            <span class="dark-mode-text">다크 모드</span>
+          </label>
+          <input type="radio" class="popup-btn" id="dark-btn" name="dark-mode">
+          <div>
+            <button class="btn-close">닫기</button>
+          </div>
+        </div>
+        <div class="popup-overlay">
+        </div>
+      </section>
       <footer class="footer">
         <div class="github-container">
           <ul class="github-list">
@@ -154,7 +163,8 @@
                   <div class="profile-container">
                     <img class="profile" src="./media/image/green9930-profile.jpg" alt="배근아 깃허브">
                   </div>
-                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">green9930</figcaption>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">green9930
+                  </figcaption>
                 </figure>
               </a>
             </li>
@@ -164,7 +174,8 @@
                   <div class="profile-container">
                     <img class="profile" src="./media/image/hyorard-profile.jpg" alt="김효성 깃허브">
                   </div>
-                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">hyorard-b</figcaption>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">hyorard-b
+                  </figcaption>
                 </figure>
               </a>
             </li>
@@ -182,6 +193,7 @@
           </ul>
         </div>
       </footer>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
