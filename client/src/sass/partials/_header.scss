@@ -1,20 +1,32 @@
 @import './common';
 
-.header {
+.content-container {
   @include container;
 
-  height: 90px;
-  padding: 30px 45px;
+  position: relative;
+}
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 90px;
+  padding: 30px 45px;
+  width: 100%;
 }
 
 .logo {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 3.6rem;
   line-height: 42px;
-  color: #15b748;
+  color: $main-theme;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo-img {
+  width: 40px;
+  height: 40px;
 }
 
 .side-nav-container,

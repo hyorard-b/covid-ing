@@ -4,19 +4,119 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link href="./dist/css/style.css" rel="stylesheet" />
     <script defer src="./dist/js/bundle.js"></script>
+    <link rel=" shortcut icon" href="./media/image/favicon.ico" />
+    <link rel="icon" href="./media/image/favicon.ico" />
     <title>Covid-ing</title>
   </head>
   <body>
-    <header class="header">
-      <div class="side-nav-container">
-        <img src="./media/image/side-nav-btn.svg" alt="사이드 메뉴 버튼" />
-      </div>
-      <h1><a class="logo" href="./index.html">COVID-ING</a></h1>
-      <div class="dark-mode-container">
-        <img src="./media/image/dark-mode-btn.svg" alt="다크 모드 버튼" />
-      </div>
-    </header>
+    <div class="content-container">
+      <nav class="side-nav">
+        <div class="side-nav-header">
+          <img
+            class="side-header-logo-img"
+            src="./media/image/coviding-logo.png"
+            alt="헤더 로고"
+          />COVID-ING
+        </div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <span class="material-icons"> public </span> 전국
+          </li>
+          <li class="nav-item">
+            <span class="material-icons"> date_range </span>
+            일별/월별 확진자
+          </li>
+          <li class="nav-item">
+            <span class="material-icons"> terrain </span> 지역별 확진자
+          </li>
+        </ul>
+        <div class="close-health">
+          <span class="close-health--heading">인접 선별 진료소</span>
+          <div class="close-health--map"></div>
+        </div>
+      </nav>
+      <section class="header-container">
+        <header class="header">
+          <div class="side-nav-container">
+            <img
+              class="side-nav-btn"
+              src="./media/image/side-nav-btn.svg"
+              alt="사이드 메뉴 버튼"
+            />
+          </div>
+          <h1>
+            <a class="logo" href="./index.html"
+              ><img
+                class="header-logo-img"
+                src="./media/image/coviding-logo.png"
+                alt="헤더 로고"
+              />COVID-ING</a
+            >
+          </h1>
+          <div class="dark-mode-container">
+            <img src="./media/image/dark-mode-btn.svg" alt="다크 모드 버튼" />
+          </div>
+        </header>
+      </section>
+      <section class="main-container">
+        <section class="section-tab">
+          <div class="tab-container">
+            <nav class="tab-nav">
+              <input type="radio" class="tab1 tab" id="tab-day" name="tab" checked="checked">
+              <label for="tab-day" class="tab-label">일별</label>
+              <input type="radio" class="tab2 tab" id="tab-month" name="tab">
+              <label for="tab-month" class="tab-label">월별</label>
+            </nav>
+            <div class="tab-content1 active">
+              <canvas id="covid-chart" width="613px" height="344px"></canvas>
+            </div>
+            <div class="tab-content2">월별</div>
+          </div>
+        </section>
+      </section>
+      <footer class="footer">
+        <div class="github-container">
+          <ul class="github-list">
+            <li>
+              <a href="https://github.com/green9930" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img class="profile" src="./media/image/green9930-profile.jpg" alt="배근아 깃허브">
+                  </div>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">green9930</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/hyorard-b" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img class="profile" src="./media/image/hyorard-profile.jpg" alt="김효성 깃허브">
+                  </div>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">hyorard-b</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/choisuhyeok1255" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img class="profile" src="./media/image/green9930-profile.jpg" alt="최수혁 깃허브">
+                  </div>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">choisuhyeok1255
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
