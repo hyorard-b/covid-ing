@@ -64,76 +64,124 @@
           </div>
         </header>
       <section class="main-container">
-        <main class="main">
-          <section class="local-container">
-            <h2 class="local--header">지역별</h2>
-            <!-- class="dark" / "light" 배경색 구분 -->
-            <ul class="local--list" aria-label="지역별 확진자 목록">
-              <li>
-                <div class="local__item">
-                  <p>서울특별시</p>
-                </div>
-              </li>      
-              <li>
-                <div class="local__item">
-                  <p>경기도</p>
-                  <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
-                </div>
-                <div class="local__sub-list">
-                  <div class="local__details">인천광역시</div>        
-                </div>
-              </li>
-              <li>
-                <div class="local__item">
-                  <p>강원도</p>                  
-                </div>
-              </li>
-              <li>
-                <div class="local__item">
-                  <p>경상도</p>
-                  <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
-                </div>
-                <div class="local__sub-list">
-                  <div class="local__details">대구광역시</div>
-                  <div class="local__details">부산광역시</div>
-                  <div class="local__details">울산광역시</div>
-                  <div class="local__details">경상북도</div>
-                  <div class="local__details">경상남도</div>
-                </div>
-              </li>
-              <li>
-                <div class="local__item">
-                  <p>전라도</p>
-                  <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
-                </div>
-                <div class="local__sub-list">
-                  <div class="local__details">광주광역시</div>
-                  <div class="local__details">전라북도</div>
-                  <div class="local__details">전라남도</div>
-                </div>
-              </li>
-              <li>
-                <div class="local__item">
-                  <p>제주특별자치도</p>
-                </div>
-              </li>
-              <li class="active">
-                <div class="local__item">
-                  <p>충청도</p>
-                  <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
-                </div>
-                <div class="local__sub-list">
-                  <div class="local__details">세종특별자치시</div>
-                  <div class="local__details">대전광역시</div>
-                  <div class="local__details">충청북도</div>
-                  <div class="local__details">충청남도</div>
-                </div>
-              </li>
-            </ul>
-          </section>
-        </main>
+        <section class="section-tab">
+          <div class="tab-container">
+            <nav class="tab-nav">
+              <input type="radio" class="tab1 tab" id="tab-day" name="tab" checked="checked">
+              <label for="tab-day" class="tab-label">일별</label>
+              <input type="radio" class="tab2 tab" id="tab-month" name="tab">
+              <label for="tab-month" class="tab-label">월별</label>
+            </nav>
+            <div class="tab-content1 active">
+              <canvas id="covid-chart" width="613px" height="344px"></canvas>
+            </div>
+            <div class="tab-content2">월별</div>
+          </div>
+        </section>
+        <section class="local-container">
+          <h2 class="local--header">지역별</h2>
+          <!-- class="dark" / "light" 배경색 구분 -->
+          <ul class="local--list" aria-label="지역별 확진자 목록">
+            <li>
+              <div class="local__item">
+                <p>서울특별시</p>
+              </div>
+            </li>      
+            <li>
+              <div class="local__item">
+                <p>경기도</p>
+                <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
+              </div>
+              <div class="local__sub-list">
+                <div class="local__details">인천광역시</div>        
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p>강원도</p>                  
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p>경상도</p>
+                <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
+              </div>
+              <div class="local__sub-list">
+                <div class="local__details">대구광역시</div>
+                <div class="local__details">부산광역시</div>
+                <div class="local__details">울산광역시</div>
+                <div class="local__details">경상북도</div>
+                <div class="local__details">경상남도</div>
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p>전라도</p>
+                <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
+              </div>
+              <div class="local__sub-list">
+                <div class="local__details">광주광역시</div>
+                <div class="local__details">전라북도</div>
+                <div class="local__details">전라남도</div>
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p>제주특별자치도</p>
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p>충청도</p>
+                <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기">
+              </div>
+              <div class="local__sub-list">
+                <div class="local__details">세종특별자치시</div>
+                <div class="local__details">대전광역시</div>
+                <div class="local__details">충청북도</div>
+                <div class="local__details">충청남도</div>
+              </div>
+            </li>
+          </ul>
+        </section>
       </section>
-      <footer class="footer"></footer>
+      <footer class="footer">
+        <div class="github-container">
+          <ul class="github-list">
+            <li>
+              <a href="https://github.com/green9930" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img class="profile" src="./media/image/green9930-profile.jpg" alt="배근아 깃허브">
+                  </div>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">green9930</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/hyorard-b" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img class="profile" src="./media/image/hyorard-profile.jpg" alt="김효성 깃허브">
+                  </div>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">hyorard-b</figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/choisuhyeok1255" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img class="profile" src="./media/image/green9930-profile.jpg" alt="최수혁 깃허브">
+                  </div>
+                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">choisuhyeok1255
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
