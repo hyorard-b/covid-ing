@@ -7,6 +7,7 @@
   justify-content: center;
   text-align: center;
   padding-top: 7%;
+  font-size: 1.4rem;
 
   .calendar-nav {
     position: relative;
@@ -15,7 +16,6 @@
     justify-content: center;
     align-items: center;
     height: 65px;
-    font-size: 2rem;
     color: $main-light;
     border-radius: 10px 10px 0 0;
 
@@ -29,18 +29,17 @@
   .calendar-grid {
     background-color: lightgreen;
     display: grid;
-    grid-template-rows: 50px;
+    grid-template-rows: 35px;
     justify-items: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 0 0 10px 10px;
     margin: 0 auto;
     height: 100%;
-    /* padding: calc(var(--width) / 20); */
-    font-size: 0.7em;
 
     .weekdays {
       display: grid;
+      gap: 5px;
       grid-template-columns: repeat(7, 1fr);
       justify-items: center;
       align-items: center;
@@ -51,7 +50,7 @@
 
     .dates {
       display: grid;
-      gap: 10px;
+      gap: 5px;
       grid-template-columns: repeat(7, 1fr);
       grid-template-rows: repeat(6, 1fr);
       justify-items: center;
@@ -66,6 +65,7 @@
       color: $main-light;
       background-color: $main-theme;
       width: 100%;
+      border-radius: 10px;
     }
   }
 
@@ -98,7 +98,7 @@
 
     .mow-legend-item {
       display: flex;
-      flex-wrap: nowrap;
+      align-items: center;
       padding: 5px;
 
       @for $i from 1 through 5 {
