@@ -4,19 +4,23 @@ url('../../media/img/example.PNG')
 로 쓸 수 있게 해놓았음.
 */
 
-@mixin container {
-  margin: 0 auto;
-  width: 720px;
+html {
   background-color: #eaeaea;
 }
 
+@mixin container {
+  margin: 0 auto;
+  width: 720px;
+  background-color: $main-background;
+}
+
 $main-theme: #15b748;
-$main-background: #FFFFFF;
-$main-light: #FCFCFC;
-$main-dark: #F1F1F1;
+$main-background: #ffffff;
+$main-light: #fcfcfc;
+$main-dark: #f1f1f1;
 $main-text: #616161;
 $main-border: #868686;
 
 $darkmode-background: #333333;
-$darkmode-light: #7A7A7A;
-$darkmode-dark: #4F4F4F;
+$darkmode-light: #7a7a7a;
+$darkmode-dark: #4f4f4f;
