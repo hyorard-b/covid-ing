@@ -1,4 +1,3 @@
-const contentContainer = document.querySelector('.content-container');
 const sideNavBtn = document.querySelector('.side-nav-btn');
 const sideNav = document.querySelector('.side-nav');
 
@@ -22,7 +21,6 @@ const renderSideNav = () => {
   };
 
   document.body.onclick = e => {
-    console.log(e.target);
     if (e.target === sideNavBtn) return;
     sideNav.classList.remove('active');
   };
