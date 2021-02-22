@@ -22,7 +22,6 @@ const renderSideNav = () => {
   };
 
   document.body.onclick = e => {
-    console.log(e.target);
     if (e.target === sideNavBtn) return;
     sideNav.classList.remove('active');
   };
