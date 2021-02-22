@@ -1,0 +1,51 @@
+@import './common';
+
+.section-tab {
+  @include container;
+  position: relative;
+
+  .tab-container{
+    width: 613px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  .tab-nav{
+    display: flex;
+    margin-bottom: 27px;
+  }
+
+  .tab{
+    display: none;
+  }
+  
+  .tab-label{
+    width: 120px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    color: #15b748;
+    border: 1px solid rgba(134,134,134,0.2);
+    border-radius : 5px 5px 0 0;
+    font-weight: 700;
+  }
+
+  .tab-label:hover{
+    cursor: pointer;
+  }
+
+  .tab:checked + label{
+    // background: #15b748;
+    background-color: rgba(21,183,72,0.2);
+  }
+
+  .tab-content1 , .tab-content2{
+    display: none;
+    width: 613px;
+    height: 344px;
+  }
+
+  .active{
+    display: block;
+  }
+}
