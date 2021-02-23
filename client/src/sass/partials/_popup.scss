@@ -1,21 +1,36 @@
 @import './common';
 
+:root {
+  --bg-color: #FFFFFF;
+  --popup-bg-color: #FFFFFF;
+  --popup-btn-color: #F1F1F1;
+  --popup-lightImg-color: #FFFFFF;
+  --popup-lightSpan-color: #000000;
+  --popup-darkSpan-color: #000000;
+  --popup-closeBtn-color: #000000;
+}
+
+body{
+  background: var(--bg-color);
+}
+
 .content-container {
   position: relative;
 
   .popup {
-    // display: none;
+    display: none;
     position: absolute;
     width: 300px;
     height: 200px;
-    background: #FFFFFF;
+    // background: #FFFFFF;
+    background: var(--popup-bg-color);
     border-radius: 10px;
     top: 25%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     z-index: 1000;
 
-    .labels{
+    .labels {
       display: flex;
       flex-direction: column;
     }
@@ -47,12 +62,14 @@
       right: 35%;
     }
 
-    .light-label, .dark-label{
+    .light-label,
+    .dark-label {
       width: 50px;
       height: 50px;
     }
 
-    .light-mode-text, .dark-mode-text{
+    .light-mode-text,
+    .dark-mode-text {
       display: inline-block;
       position: absolute;
       top: 100%;
@@ -61,11 +78,28 @@
       margin: 10px 0;
     }
 
-    .dark-mode-text{
+    .light-mode-text {
+      color: var(--popup-lightSpan-color);
+
+    }
+
+    .dark-mode-text {
+      color: var(--popup-darkSpan-color);
       left: 4px;
     }
 
-    .dark-mode-icon{
+    .light-mode-icon {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px #777777;
+      background: var(--popup-lightImg-color);
+    }
+
+    .dark-mode-icon {
       width: 100%;
       height: 100%;
       text-align: center;
@@ -76,7 +110,8 @@
     }
   }
 
-  .popup-overlay{
+  .popup-overlay {
+    display: none;
     z-index: 100;
     background: grey;
     opacity: .7;
@@ -91,11 +126,14 @@
   .btn-close {
     width: 250px;
     height: 30px;
-    background: #E5E5E5;
+    background: var(--popup-btn-color);
     position: absolute;
     left: 9%;
     bottom: 10%;
     border: 0 solid black;
     border-radius: 5px;
+    border: 0;
+    outline: 0;
+    color: var(--popup-closeBtn-color);
   }
 }
