@@ -1,15 +1,14 @@
-/* url 예) http://localhost:5000/corona/city/20210217 */
-
 import axios from 'axios';
 
 const INFECT_URL = 'http://localhost:5000/corona/infect/';
 
-// date 형식은 위와 같이 '20210220' 형식이어야 함
-const getInfectionData = async date => {
-  const url = INFECT_URL + date;
-  const data = await axios.get(url);
+const getInfects = async (startDay, endDay) => {
+  const url = `${INFECT_URL + startDay}/${endDay}`;
+  const { data } = await axios.get(url);
 
-  return data;
+  console.log(data);
+
+  // return infects.map(({ data }) => data.decideCnt).reverse();
 };
 
-getInfectionData('20210220');
+export default getInfects;
