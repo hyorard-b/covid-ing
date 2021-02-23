@@ -1,7 +1,6 @@
 import { isSunday } from 'date-fns';
 import { getLastMonthDates } from '../../utils/calendar/last-month-dates';
 import getCurrentMonthDates from '../../utils/calendar/current-month-dates';
-import getNextMonthDates from '../../utils/calendar/next-month-dates';
 
 const $dates = document.querySelector('.dates');
 const isSund = renderingDateObj => {
