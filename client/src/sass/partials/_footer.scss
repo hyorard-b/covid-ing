@@ -2,7 +2,7 @@
 
 .footer {
   @include container;
-  background: #15b748;
+  background: var(--main-green-color);
   height: 160px;
 
   .github-container {

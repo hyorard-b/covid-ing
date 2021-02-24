@@ -1,5 +1,9 @@
 @import './common';
 
+#covid-chart{
+  background: var(--bg-color);
+}
+
 .section-tab {
   @include container;
   position: relative;
@@ -24,8 +28,8 @@
     height: 28px;
     text-align: center;
     line-height: 28px;
-    color: #15b748;
-    border: 1px solid rgba(134,134,134,0.2);
+    color: var(--sub-orange-color);
+    border: 1px solid rgba(var(--tab-white-color));
     border-radius : 5px 5px 0 0;
     font-weight: 700;
   }
@@ -35,8 +39,7 @@
   }
 
   .tab:checked + label{
-    // background: #15b748;
-    background-color: rgba(21,183,72,0.2);
+    background-color: rgba(var(--sub-orangeAlpha-color), 0.2);
   }
 
   .tab-content1 , .tab-content2{

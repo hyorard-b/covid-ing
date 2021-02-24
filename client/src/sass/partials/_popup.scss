@@ -2,12 +2,22 @@
 
 :root {
   --bg-color: #FFFFFF;
+  --header-icon-color: #7A7A7A;
   --popup-bg-color: #FFFFFF;
   --popup-btn-color: #F1F1F1;
   --popup-lightImg-color: #FFFFFF;
   --popup-lightSpan-color: #000000;
   --popup-darkSpan-color: #000000;
   --popup-closeBtn-color: #000000;
+  --main-green-color: #15B748;
+  --sub-orange-color: #FB9736;
+  --sub-orangeAlpha-color: 251, 151, 54;
+  --tab-white-color: #868686;
+  --tab-dark-clickAlpha-color: 180, 180, 180;
+  --tab-dark-nonclick-color: #404040;
+  --infection-odd-color : #FCFCFC;
+  --infection-even-color : #F1F1F1;
+  --infection-font-color : #616161;
 }
 
 body{
