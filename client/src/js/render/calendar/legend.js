@@ -6,7 +6,7 @@ const renderLegends = async (startDay, dayCount) => {
   const legends = await calcInfectLegend(startDay, dayCount);
 
   $legendTextElemtents.forEach(($legendText, idx) => {
-    $legendText.textContent = legends[idx];
+    $legendText.textContent = `~${legends[idx]}`;
   });
 };
 
