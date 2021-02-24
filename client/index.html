@@ -14,6 +14,7 @@
     <link rel="icon" href="./media/image/favicon.ico" />
     <title>Covid-ing</title>
   </head>
+
   <body>
     <div class="content-container">
       <nav class="side-nav">
@@ -41,41 +42,78 @@
           <div class="close-health--map"></div>
         </div>
       </nav>
-      <section class="header-container">
-        <header class="header">
-          <div class="side-nav-container">
-            <img
-              class="side-nav-btn"
-              src="./media/image/side-nav-btn.svg"
-              alt="사이드 메뉴 버튼"
-            />
-          </div>
-          <h1>
-            <a class="logo" href="./index.html"
-              ><img
-                class="header-logo-img"
-                src="./media/image/coviding-logo.png"
-                alt="헤더 로고"
-              />COVID-ING</a
-            >
-          </h1>
-          <div class="dark-mode-container">
-            <img src="./media/image/dark-mode-btn.svg" alt="다크 모드 버튼" />
-          </div>
-        </header>
+      <header class="header">
+        <div class="side-nav-container">
+          <span class="material-icons side-nav-btn"> menu </span>
+        </div>
+        <h1>
+          <a class="logo" href="./index.html"
+            ><img
+              class="header-logo-img"
+              src="./media/image/coviding-logo.png"
+              alt="헤더 로고"
+            />COVID-ING</a
+          >
+        </h1>
+        <div class="dark-mode-container">
+          <span class="material-icons set-dark-btn"> wb_sunny </span>
+        </div>
+      </header>
       <section class="main-container">
         <section class="section-tab">
           <div class="tab-container">
             <nav class="tab-nav">
-              <input type="radio" class="tab1 tab" id="tab-day" name="tab" checked="checked">
+              <input
+                type="radio"
+                class="tab1 tab"
+                id="tab-day"
+                name="tab"
+                checked="checked"
+              />
               <label for="tab-day" class="tab-label">일별</label>
-              <input type="radio" class="tab2 tab" id="tab-month" name="tab">
+              <input type="radio" class="tab2 tab" id="tab-month" name="tab" />
               <label for="tab-month" class="tab-label">월별</label>
             </nav>
             <div class="tab-content1 active">
               <canvas id="covid-chart" width="613px" height="344px"></canvas>
             </div>
-            <div class="tab-content2">월별</div>
+            <div class="tab-content2">
+              <div class="calendar-nav">
+                <div class="year-month">
+                  <div class="year"></div>
+                  <div class="month"></div>
+                </div>
+                <span class="material-icons left"> keyboard_arrow_left </span>
+                <span class="material-icons right"> keyboard_arrow_right </span>
+              </div>
+              <div class="calendar-grid">
+                <div class="weekdays"></div>
+                <div class="dates"></div>
+              </div>
+
+              <ul class="month-mow-legend">
+                <li class="mow-legend-item">
+                  <div class="legend-color-1"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-2"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-3"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-4"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-5"></div>
+                  <span class="legend-text"></span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
         <section class="local-container">
@@ -86,7 +124,7 @@
               <div id="city-15" class="has-local-data local__item">
                 <!-- 서울특별시 -->
               </div>
-            </li>      
+            </li>
             <li>
               <div class="local__item">
                 <p class="local__city">경기도</p> 
@@ -170,6 +208,35 @@
           </ul>
         </section>
       </section>
+      <section class="popup-container">
+        <div class="popup">
+          <label for="light-btn" class="light-label labels">
+            <span class="material-icons light-mode-icon"> light_mode </span>
+            <span class="light-mode-text">라이트 모드</span>
+          </label>
+          <input
+            type="radio"
+            class="popup-btn"
+            id="light-btn"
+            name="dark-mode"
+            checked="checked"
+          />
+          <label for="dark-btn" class="dark-label labels">
+            <span class="material-icons dark-mode-icon"> dark_mode </span>
+            <span class="dark-mode-text">다크 모드</span>
+          </label>
+          <input
+            type="radio"
+            class="popup-btn"
+            id="dark-btn"
+            name="dark-mode"
+          />
+          <div>
+            <button class="btn-close">닫기</button>
+          </div>
+        </div>
+        <div class="popup-overlay"></div>
+      </section>
       <footer class="footer">
         <div class="github-container">
           <ul class="github-list">
@@ -177,9 +244,18 @@
               <a href="https://github.com/green9930" target="_blank">
                 <figure>
                   <div class="profile-container">
-                    <img class="profile" src="./media/image/green9930-profile.jpg" alt="배근아 깃허브">
+                    <img
+                      class="profile"
+                      src="./media/image/green9930-profile.jpg"
+                      alt="배근아 깃허브"
+                    />
                   </div>
-                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">green9930</figcaption>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />green9930
+                  </figcaption>
                 </figure>
               </a>
             </li>
@@ -187,9 +263,18 @@
               <a href="https://github.com/hyorard-b" target="_blank">
                 <figure>
                   <div class="profile-container">
-                    <img class="profile" src="./media/image/hyorard-profile.jpg" alt="김효성 깃허브">
+                    <img
+                      class="profile"
+                      src="./media/image/hyorard-profile.jpg"
+                      alt="김효성 깃허브"
+                    />
                   </div>
-                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">hyorard-b</figcaption>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />hyorard-b
+                  </figcaption>
                 </figure>
               </a>
             </li>
@@ -197,9 +282,17 @@
               <a href="https://github.com/choisuhyeok1255" target="_blank">
                 <figure>
                   <div class="profile-container">
-                    <img class="profile" src="./media/image/green9930-profile.jpg" alt="최수혁 깃허브">
+                    <img
+                      class="profile"
+                      src="./media/image/green9930-profile.jpg"
+                      alt="최수혁 깃허브"
+                    />
                   </div>
-                  <figcaption class="github-id"><img src="./media/image/github-logo.svg" alt="깃허브 로고">choisuhyeok1255
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />choisuhyeok1255
                   </figcaption>
                 </figure>
               </a>

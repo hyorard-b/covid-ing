@@ -1,15 +1,15 @@
 const express = require('express');
 const axios = require('axios');
 
-const serviceKey = process.env.API_KEY;
+const serviceKey = process.env.API_KEY2;
 const router = express.Router();
 
-const encodeURI = (url, date) => {
+const encodeURI = (url, startDay, endDay) => {
   url += `?${encodeURIComponent('serviceKey')}=${serviceKey}`;
   url += `&${encodeURIComponent('pageNo')}=${encodeURIComponent('1')}`;
   url += `&${encodeURIComponent('numOfRows')}=${encodeURIComponent('10')}`;
-  url += `&${encodeURIComponent('startCreateDt')}=${encodeURIComponent(date)}`;
-  url += `&${encodeURIComponent('endCreateDt')}=${encodeURIComponent(`${+date}`)}`;
+  url += `&${encodeURIComponent('startCreateDt')}=${encodeURIComponent(startDay)}`;
+  url += `&${encodeURIComponent('endCreateDt')}=${encodeURIComponent(endDay)}`;
 
   return url;
 };
@@ -22,8 +22,8 @@ const getCityStatusData = async (date) => {
 };
 
 // get infect status data
-const getInfectStatusData = async (date) => {
-  const encodedURI = encodeURI(process.env.INFECT_URL, date);
+const getInfectStatusData = async (startDay, endDay) => {
+  const encodedURI = encodeURI(process.env.INFECT_URL, startDay, endDay);
   const res = await axios.get(encodedURI);
   return res.data;
 };
@@ -33,16 +33,16 @@ router.get('/city/:date', async (req, res) => {
     const { date } = req.params;
     const data = await getCityStatusData(date);
 
-    res.json(data.response.body.items.item);
+    res.json(data.response);
   } catch (e) {
     console.error(e);
   }
 });
 
-router.get('/infect/:date', async (req, res) => {
+router.get('/infect/:startDay/:endDay', async (req, res) => {
   try {
-    const { date } = req.params;
-    const data = await getInfectStatusData(date);
+    const { startDay, endDay } = req.params;
+    const data = await getInfectStatusData(startDay, endDay);
 
     res.json(data.response.body.items.item);
   } catch (e) {

@@ -17,12 +17,15 @@ $darkmode-dark: #4f4f4f;
 html {
   background-color: #eaeaea;
   font-size: 10px;
+  color: $main-theme;
 }
 
 @mixin container {
   margin: 0 auto;
   width: 720px;
-  background-color: $main-background;
+  position: relative;
+  z-index: 99;
+  background-color: var(--bg-color);
 }
 
 .main-container {
