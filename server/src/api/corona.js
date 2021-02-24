@@ -44,9 +44,7 @@ router.get('/infect/:startDay/:endDay', async (req, res) => {
     const { startDay, endDay } = req.params;
     const data = await getInfectStatusData(startDay, endDay);
 
-    res.json(data.response);
-
-    // res.json(data.response.body.items.item);
+    res.json(data.response.body.items.item);
   } catch (e) {
     console.error(e);
   }
