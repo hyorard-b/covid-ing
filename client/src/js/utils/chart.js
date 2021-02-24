@@ -11,11 +11,29 @@ const barChart = () => {
         label: '일별 확진자',
         data: [100, 10, 100, 200, 500, 400, 662],
         backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-        // borderColor: ['rbga(255, 99, 132, 0.3']
+        borderColor: ['rbga(255, 99, 132, 0.3']
       }]
     },
     options: {
-      responsive: false
+      responsive: false,
+      scales: {
+        //X축 색상 변경
+        xAxes: [{
+          ticks: {
+            fontColor: 'rgba(12, 13, 13, 1)',
+            // fontSize: 14
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            // ?? 뭔지 잘 모르겠음
+            beginAtZero: true,
+            // stepSize: 2,
+            fontColor: "rgba(12, 13, 13, 1)",
+            // fontSize: 14,
+          }
+        }]
+      }
     }
   });
 }
