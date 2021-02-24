@@ -23,6 +23,9 @@ html {
 @mixin container {
   margin: 0 auto;
   width: 720px;
+  position: relative;
+  z-index: 99;
+  background-color: var(--bg-color);
 }
 
 .main-container {
