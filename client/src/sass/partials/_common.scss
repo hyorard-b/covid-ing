@@ -23,7 +23,6 @@ html {
 @mixin container {
   margin: 0 auto;
   width: 720px;
-  background-color: $main-background;
 }
 
 .main-container {
