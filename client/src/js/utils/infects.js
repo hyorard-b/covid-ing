@@ -3,16 +3,19 @@ import getInfects from '../api/infection';
 const getInfectPerDay = async (startDay, dayCount) => {
   const infects = await getInfects(startDay, dayCount);
 
+  infects.sort();
+
   const dailyInfects = infects.reduce(
     (dailyInfects, dayInfect, day, infects) => {
-      if (day === 0 || day === infects.length - 1) return dailyInfects;
+      if (day === 0) return dailyInfects;
 
-      dailyInfects.push(infects[day + 1] - dayInfect);
+      dailyInfects.push(dayInfect - infects[day - 1]);
 
       return dailyInfects;
     },
     []
   );
+
   return dailyInfects;
 };
 

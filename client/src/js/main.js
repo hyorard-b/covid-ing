@@ -3,17 +3,20 @@ import tabHandler from './utils/tabs';
 import barChart from './utils/chart';
 import localInf from './utils/local';
 import renderLocalData from './render/local-infection';
-import popup from "./render/popup";
-import { initCalendar, changeCalendar } from './render/calendar';
-
-const renderingDate = new Date();
+import popup from './render/popup';
+import { initCalendar } from './render/calendar';
+import watchMonthChange from './utils/calendar/watch-month-change';
+import globalStates from './globalStates';
 
 window.addEventListener('DOMContentLoaded', () => {
+  globalStates.renderingDate = new Date();
+
   renderSideNav();
   tabHandler();
   barChart();
   localInf();
   renderLocalData();
   popup();
-  initCalendar(renderingDate);
+  initCalendar(globalStates.renderingDate);
+  watchMonthChange();
 });
