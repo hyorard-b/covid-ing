@@ -1,14 +1,15 @@
 .local-container {
-  width: 720px;
+  width: 100%;
   padding: 50px;
 }
 
-.local--header{
+.local--header {
   color: var(--sub-orange-color);
 }
 
 .local--list > li {
   font-size: 1.4rem;
+  color: var(--infection-font-color);
   border-radius: 5px;
   margin: 7px;
 }
@@ -21,43 +22,69 @@
   background-color: var(--infection-even-color);
 }
 
+.local--header {
+  display: flex;
+  position: relative;
+  padding: 20px 60px 20px 40px;
+  justify-content: space-between;
+}
+
 .local__item,
 .local__details {
   display: flex;
   position: relative;  
-  padding: 20px 25px;  
+  padding: 20px 30px;  
+  border-radius: 5px;
   justify-content: space-between;
+  border: 0.5px solid rgba(var(--tab-white-color), 0.3);
+  transition: all 0.2s ease-in-out;
 }
 
-.local__totalCnt,
-.local__yesterdayCnt {
+.header__index {
+  width: 150px;
+  text-align: left;
+}
+
+.header__total-infection {
+  margin-right: 20px;
+}
+
+.header__total-infection,
+.header__prev-infection,
+.local__total-cnt,
+.local__prevday-cnt {
   width: 150px;
   text-align: right;
 }
 
-.local__yesterdayCnt {
+.local__total-cnt {
+  margin-left: 40px;
+}
+
+.local__prevday-cnt {
   margin-right: 30px;
 }
 
 .arrow {
-  display: block;
   position: absolute;
-  width: 15px;
-  height: 15px;
+  font-size: 35px;
   right: 25px;
+  line-height: 0.45;
   transition: all 0.4s ease-in-out;
 }
 
 .local__sub-list {
   height: 0;
   overflow: hidden;
-  transition: height 0.4s ease-in-out;
+  background-color: var(--bg-color);
+  transition: all 0.4s ease-in-out;
 }
 
 .local__details {
   // display: none;
   // height: 0;
   // justify-content: space-between;
+  background-color: #FFFFFF;
   transition: height 0.4s ease-in-out;
 }
 
@@ -68,27 +95,25 @@
 
 .local--list > li.active {
   position: relative;
-  margin: 7px;
+  // margin: 7px;
   background-color: transparent;
   
   .local__item {
-    background-color: $darkmode-dark;
+    background-color: rgba(var(--main-green-color));
+    color: var(--infection-odd-color);
     border-radius: 5px;
-  }  
+  }
+
   .arrow {
     transform: rotate(180deg);
-    // 색상 변경 필요
-    color: $main-light;
-    transition: all 0.4s ease-in-out;
   }
-  .local__sub-list {
-    border-radius: 5px;
-  }
+
   .local__details {
-    padding: 20px 25px;
     border-radius: 5px;
     display: flex;
     margin: 7px 0px;
-    background-color: #d9d9d9;
+    background-color: #FFFFFF;
+    // background-color: var(--infection-odd-color);
+    border: 0.5px solid rgba(var(--main-green-color), 0.5);
   }
 }
