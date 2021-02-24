@@ -1,5 +1,4 @@
 .local-container {
-  // background-color: lightblue;
   width: 720px;
   padding: 50px;
 }
@@ -11,7 +10,6 @@
 .local--list > li {
   font-size: 1.4rem;
   border-radius: 5px;
-  overflow: hidden;
   margin: 7px;
 }
 
@@ -25,42 +23,63 @@
 
 .local__item,
 .local__details {
+  display: flex;
+  position: relative;  
   padding: 20px 25px;  
+  justify-content: space-between;
 }
 
-.local__item {
-  display: flex;
-  position: relative;
-  color: var(--infection-font-color);
+.local__totalCnt,
+.local__yesterdayCnt {
+  width: 150px;
+  text-align: right;
+}
+
+.local__yesterdayCnt {
+  margin-right: 30px;
 }
 
 .arrow {
+  display: block;
   position: absolute;
   width: 15px;
   height: 15px;
   right: 25px;
+  transition: all 0.4s ease-in-out;
 }
 
-.local--list > .local__sub-list {
-  // height: 0;
-  display: none;
+.local__sub-list {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s ease-in-out;
 }
 
 .local__details {
-  display: none;
+  // display: none;
+  // height: 0;
+  // justify-content: space-between;
+  transition: height 0.4s ease-in-out;
+}
+
+.local__city {
+  display: block;
+  width: 100px;
 }
 
 .local--list > li.active {
   position: relative;
   margin: 7px;
   background-color: transparent;
+  
   .local__item {
     background-color: $darkmode-dark;
     border-radius: 5px;
-    color: $main-light;
   }  
-  img {
+  .arrow {
     transform: rotate(180deg);
+    // 색상 변경 필요
+    color: $main-light;
+    transition: all 0.4s ease-in-out;
   }
   .local__sub-list {
     border-radius: 5px;
@@ -68,16 +87,8 @@
   .local__details {
     padding: 20px 25px;
     border-radius: 5px;
-    display: block;
+    display: flex;
     margin: 7px 0px;
-    background-color: $main-light;
+    background-color: #d9d9d9;
   }
-  .local__sub-list {
-    border-radius: 5px;
-    transition: all 0.4s ease-in-out;
-  }
-}
-
-.local--list > li.active > .local__sub-list > .local__details:nth-child(odd) {
-  background-color: $main-dark;
 }
