@@ -1,4 +1,3 @@
-const contentContainer = document.querySelector('.content-container');
 const sideNavBtn = document.querySelector('.side-nav-btn');
 const sideNav = document.querySelector('.side-nav');
 

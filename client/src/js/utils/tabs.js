@@ -6,20 +6,22 @@ const tabHandler = () => {
   const $tabContent2 = document.querySelector('.tab-content2');
 
   $tabNav.onclick = e => {
-    if(e.target.type !== 'radio') return;
-    
-    if(e.target.classList.contains('tab1')) {
+    if (e.target.type !== 'radio') return;
+
+    if (e.target.classList.contains('tab1')) {
       $tabContent1.classList.remove('active');
       $tabContent2.classList.remove('active');
       $tabContent1.classList.add('active');
+      $tabNav.style.marginBottom = '27px';
     }
 
-    if(e.target.classList.contains('tab2')) {
+    if (e.target.classList.contains('tab2')) {
       $tabContent1.classList.remove('active');
       $tabContent2.classList.remove('active');
       $tabContent2.classList.add('active');
+      $tabNav.style.marginBottom = '0px';
     }
   };
-}
+};
 
 export default tabHandler;

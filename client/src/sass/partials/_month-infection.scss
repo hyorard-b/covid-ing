@@ -1,0 +1,118 @@
+.tab-content2 {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 7%;
+  font-size: 1.4rem;
+
+  .calendar-nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    color: $main-light;
+    border-radius: 10px 10px 0 0;
+
+    background-color: $main-theme;
+
+    .month {
+      margin-top: 5px;
+    }
+  }
+
+  .calendar-grid {
+    background-color: lightgreen;
+    display: grid;
+    grid-template-rows: 35px;
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto;
+    height: 100%;
+
+    .weekdays {
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(7, 1fr);
+      justify-items: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      font-size: 1.8rem;
+    }
+
+    .dates {
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      justify-items: center;
+      align-items: center;
+      width: 100%;
+      font-weight: 400;
+    }
+
+    .dates > span {
+      display: block;
+      padding: 30px;
+      color: $main-light;
+      background-color: $main-theme;
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  .left,
+  .right {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    cursor: pointer;
+    font-size: 3.5rem;
+    padding: 10px 0;
+    color: #fff;
+  }
+
+  .left {
+    left: 35%;
+  }
+
+  .right {
+    right: 35%;
+  }
+
+  .month-mow-legend {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    padding: 5px;
+    background-color: $main-dark;
+    display: flex;
+
+    .mow-legend-item {
+      display: flex;
+      align-items: center;
+      padding: 5px;
+
+      @for $i from 1 through 5 {
+        .legend-color-#{$i} {
+          width: 10px;
+          height: 10px;
+          margin-right: 5px;
+          background-color: rgba(21, 183, 72, 0.2 * $i);
+        }
+
+        .legend-text {
+          color: $main-text;
+        }
+      }
+    }
+  }
+}

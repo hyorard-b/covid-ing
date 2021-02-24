@@ -8,22 +8,21 @@
   @include container;
   position: relative;
 
-  .tab-container{
+  .tab-container {
     width: 613px;
-    height: 400px;
     margin: 0 auto;
   }
 
-  .tab-nav{
+  .tab-nav {
     display: flex;
     margin-bottom: 27px;
   }
 
-  .tab{
+  .tab {
     display: none;
   }
-  
-  .tab-label{
+
+  .tab-label {
     width: 120px;
     height: 28px;
     text-align: center;
@@ -34,7 +33,7 @@
     font-weight: 700;
   }
 
-  .tab-label:hover{
+  .tab-label:hover {
     cursor: pointer;
   }
 
@@ -42,13 +41,12 @@
     background-color: rgba(var(--sub-orangeAlpha-color), 0.2);
   }
 
-  .tab-content1 , .tab-content2{
+  .tab-content1,
+  .tab-content2 {
     display: none;
     width: 613px;
-    height: 344px;
   }
-
-  .active{
+  .active {
     display: block;
   }
 }
