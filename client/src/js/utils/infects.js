@@ -5,15 +5,15 @@ const getInfectPerDay = async (startDay, dayCount) => {
 
   const dailyInfects = infects.reduce(
     (dailyInfects, dayInfect, day, infects) => {
-      if (day === infects.length - 1) return dailyInfects;
+      if (day === 0 || day === infects.length - 1) return dailyInfects;
 
-      dailyInfects.push(dayInfect - infects[day + 1]);
+      dailyInfects.push(infects[day + 1] - dayInfect);
 
       return dailyInfects;
     },
     []
   );
-  return dailyInfects.reverse();
+  return dailyInfects;
 };
 
 export default getInfectPerDay;
