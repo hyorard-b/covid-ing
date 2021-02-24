@@ -11,9 +11,7 @@ const getCityData = async () => {
     .map(({ gubun, defCnt, incDec }) => {
       return [gubun, defCnt, incDec];
     })
-    .filter((_, i) => 
-      (i === 18 || i === 0 || i === 9) ? false : true
-    )
+    .filter((_, i) => !(i === 0 || i === 9 || i === 18));
 };
 
 export default getCityData;
