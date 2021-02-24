@@ -4,6 +4,10 @@
   padding: 50px;
 }
 
+.local--header{
+  color: var(--sub-orange-color);
+}
+
 .local--list > li {
   font-size: 1.4rem;
   border-radius: 5px;
@@ -12,11 +16,11 @@
 }
 
 .local--list > li:nth-child(odd) {
-  background-color: $main-light;
+  background-color: var(--infection-odd-color);
 }
 
 .local--list > li:nth-child(even) {
-  background-color: $main-dark;
+  background-color: var(--infection-even-color);
 }
 
 .local__item,
@@ -26,7 +30,8 @@
 
 .local__item {
   display: flex;
-  position: relative;  
+  position: relative;
+  color: var(--infection-font-color);
 }
 
 .arrow {
