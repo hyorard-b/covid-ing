@@ -19,16 +19,12 @@ const renderDates = (renderingDateObj, infectsPerDay, legends) => {
   const currentMonthDates = getCurrentMonthDates(renderingDateObj);
   const $totalDates = document.createDocumentFragment();
 
-  console.log(infectsPerDay, legends);
-
   const mowArr = infectsPerDay.map(infect => {
     return legends.reduce((legendIdx, legend, idx) => {
       if (infect > legend) return idx + 1;
       return legendIdx;
     }, 0);
   });
-
-  console.log(mowArr);
 
   const attachDate = date => {
     const $span = document.createElement('span');
