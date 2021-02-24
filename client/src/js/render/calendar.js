@@ -8,10 +8,10 @@ import {
   getDifMonthDayCount
 } from '../utils/calendar/day-count';
 import getInfectPerDay from '../utils/infects';
+import clearCalendar from './calendar/clear';
 
 const renderCalendar = (renderingDate, infectsPerDay, legends) => {
   renderYearMonth(renderingDate);
-  renderWeekDays();
   renderDates(renderingDate, infectsPerDay, legends);
 };
 
@@ -22,6 +22,8 @@ const initCalendar = async renderingDate => {
   );
 
   const legends = renderLegends(infectsPerDay);
+
+  renderWeekDays();
   renderCalendar(renderingDate, infectsPerDay, legends);
 };
 
@@ -32,6 +34,8 @@ const changeCalendar = async renderingDate => {
   );
 
   const legends = renderLegends(infectsPerDay);
+
+  clearCalendar();
   renderCalendar(renderingDate, infectsPerDay, legends);
 };
 
