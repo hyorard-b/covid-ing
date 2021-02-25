@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { parseISO, sub, format } from 'date-fns';
+import { parseISO, sub, format, startOfDay } from 'date-fns';
 
 const INFECT_URL = 'http://localhost:5000/corona/infect/';
 
