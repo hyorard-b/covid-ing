@@ -7,6 +7,7 @@ import popup from './render/popup';
 import { initCalendar } from './render/calendar';
 import watchMonthChange from './utils/calendar/watch-month-change';
 import globalStates from './globalStates';
+import goToTop from './utils/goToTop';
 import renderTotal from './render/total';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -21,4 +22,5 @@ window.addEventListener('DOMContentLoaded', () => {
   popup();
   initCalendar(globalStates.renderingDate);
   watchMonthChange();
+  goToTop();
 });
