@@ -112,8 +112,11 @@
     border-radius: 5px;
     display: flex;
     margin: 7px 0px;
-    background-color: #FFFFFF;
+    // background-color: #FFFBF5;
+    background-color: #F3FFF9;
     // background-color: var(--infection-odd-color);
-    border: 0.5px solid rgba(var(--main-green-color), 0.5);
+    border: 0.5px solid rgba(var(--main-green-color), 0.3);
+    // border: 0.5px solid rgba(251, 151, 54, 0.5);
+    // border: 0.5px solid rgba(243, 255, 249, 1);
   }
 }
