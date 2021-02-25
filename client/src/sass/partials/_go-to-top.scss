@@ -1,0 +1,18 @@
+.go-to-top {
+  display: none;
+  position: fixed;
+  opacity: 0.5;
+  transform: rotate(0.75turn);
+  right: 20%;
+  bottom: 10%;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.go-to-top:hover {
+  opacity: 1;
+}
+
+.scroll-arrow {
+  font-size: 45px;
+}
