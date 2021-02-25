@@ -6,7 +6,7 @@ const $dates = document.querySelector('.dates');
 const isSund = renderingDateObj => {
   isSunday(renderingDateObj);
 };
-const mowColors = [
+const legendColors = [
   'rgba(21, 183, 72, 0.2)',
   'rgba(21, 183, 72, 0.4)',
   'rgba(21, 183, 72, 0.6)',
@@ -19,7 +19,8 @@ const renderDates = (renderingDateObj, infectsPerDay, legends) => {
   const currentMonthDates = getCurrentMonthDates(renderingDateObj);
   const $totalDates = document.createDocumentFragment();
 
-  const mowArr = infectsPerDay.map(infect => {
+  // 일별 확진자 범주화
+  const legendedInfects = infectsPerDay.map(infect => {
     return legends.reduce((legendIdx, legend, idx) => {
       if (infect > legend) return idx + 1;
       return legendIdx;
@@ -46,21 +47,27 @@ const renderDates = (renderingDateObj, infectsPerDay, legends) => {
     return $span;
   };
 
+  // 저번 달 날짜 투명화
   lastMonthDates.forEach(date => {
     const $date = attachDate(date);
     $date.textContent = '';
     $date.style.backgroundColor = 'transparent';
   });
+
+  // 이번 달 날짜 렌더링
   currentMonthDates.forEach((date, idx) => {
     const $date = attachDate(date);
 
-    $date.style.backgroundColor = `${mowColors[mowArr[idx]]}`;
+    // 잔디 찍기
+    $date.style.backgroundColor = `${legendColors[legendedInfects[idx]]}`;
 
+    // hover 표시
     const $numInfection = document.createElement('div');
     $numInfection.classList.add('num-infection');
-    $numInfection.textContent = `${infectsPerDay[idx]}명`;
+    $numInfection.textContent = `${infectsPerDay[idx]} 명`;
     $date.appendChild($numInfection);
 
+    // 확진자 데이터 없는 날
     if (idx >= infectsPerDay.length) {
       $date.style.backgroundColor = 'gray';
       $numInfection.textContent = `murph!!!!!!`;
