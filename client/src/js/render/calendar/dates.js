@@ -56,7 +56,15 @@ const renderDates = (renderingDateObj, infectsPerDay, legends) => {
 
     $date.style.backgroundColor = `${mowColors[mowArr[idx]]}`;
 
-    if (idx >= infectsPerDay.length) $date.style.backgroundColor = 'gray';
+    const $numInfection = document.createElement('div');
+    $numInfection.classList.add('num-infection');
+    $numInfection.textContent = `${infectsPerDay[idx]}명`;
+    $date.appendChild($numInfection);
+
+    if (idx >= infectsPerDay.length) {
+      $date.style.backgroundColor = 'gray';
+      $numInfection.textContent = `murph!!!!!!`;
+    }
   });
 
   $dates.appendChild($totalDates);
