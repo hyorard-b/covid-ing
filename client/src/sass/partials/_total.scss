@@ -1,0 +1,59 @@
+@import './common';
+
+.total-container {
+  @include container;
+  padding: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.cumulative-confirm,
+.today-confirm,
+.compare-last-day {
+  position: relative;
+  height: 70px;
+  border-radius: 5px;
+}
+
+.cumulative-confirm {
+  width: 230px;
+  background-color: rgb(var(--main-green-color));
+}
+
+.today-confirm {
+  width: 180px;
+  background-color: var(--infection-odd-color);
+  border: 1px solid #a3a3a3;
+}
+
+.compare-last-day {
+  width: 120px;
+  background-color: var(--infection-odd-color);
+  border: 1px solid #a3a3a3;
+}
+
+.confirm-header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: rgb(var(--infection-font-color));
+}
+
+.confirm-content {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  font-size: 2.4rem;
+  color: rgb(var(--main-green-color));
+}
+
+.cumulative-confirm > .confirm-header,
+.cumulative-confirm > .confirm-content {
+  color: #fff;
+}

@@ -125,10 +125,60 @@
               <p>강원도</p>
             </div>
           </li>
-          <li>
-            <div class="local__item">
-              <p>경상도</p>
-              <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기" />
+        </ul>
+        <div class="close-health">
+          <span class="close-health--heading">인접 선별 진료소</span>
+          <div class="close-health--map"></div>
+        </div>
+      </nav>
+      <header class="header">
+        <div class="side-nav-container">
+          <span class="material-icons side-nav-btn"> menu </span>
+        </div>
+        <h1>
+          <a class="logo" href="./index.html"
+            ><img
+              class="header-logo-img"
+              src="./media/image/coviding-logo.png"
+              alt="헤더 로고"
+            />COVID-ING</a
+          >
+        </h1>
+        <div class="dark-mode-container">
+          <span class="material-icons set-dark-btn"> wb_sunny </span>
+        </div>
+      </header>
+      <section class="main-container">
+        <section class="total-container">
+          <article class="cumulative-confirm">
+            <div class="confirm-header">누적 확진자 수</div>
+            <div class="confirm-content"></div>
+          </article>
+          <article class="today-confirm">
+            <div class="confirm-header">금일 확진자 수</div>
+            <div class="confirm-content"></div>
+          </article>
+          <article class="compare-last-day">
+            <div class="confirm-header">전일 대비</div>
+            <div class="confirm-content"></div>
+          </article>
+        </section>
+        <section class="section-tab">
+          <div class="tab-container">
+            <nav class="tab-nav">
+              <input
+                type="radio"
+                class="tab1 tab"
+                id="tab-day"
+                name="tab"
+                checked="checked"
+              />
+              <label for="tab-day" class="tab-label">일별</label>
+              <input type="radio" class="tab2 tab" id="tab-month" name="tab" />
+              <label for="tab-month" class="tab-label">월별</label>
+            </nav>
+            <div class="tab-content1 active">
+              <canvas id="covid-chart" width="613px" height="344px"></canvas>
             </div>
             <div class="local__sub-list">
               <div class="local__details">대구광역시</div>
@@ -137,52 +187,198 @@
               <div class="local__details">경상북도</div>
               <div class="local__details">경상남도</div>
             </div>
-          </li>
-          <li>
-            <div class="local__item">
-              <p>전라도</p>
-              <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기" />
-            </div>
-            <div class="local__sub-list">
-              <div class="local__details">광주광역시</div>
-              <div class="local__details">전라북도</div>
-              <div class="local__details">전라남도</div>
-            </div>
-          </li>
-          <li>
-            <div class="local__item">
-              <p>제주특별자치도</p>
-            </div>
-          </li>
-          <li>
-            <div class="local__item">
-              <p>충청도</p>
-              <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기" />
-            </div>
-            <div class="local__sub-list">
-              <div class="local__details">세종특별자치시</div>
-              <div class="local__details">대전광역시</div>
-              <div class="local__details">충청북도</div>
-              <div class="local__details">충청남도</div>
-            </div>
-          </li>
-        </ul>
+          </div>
+        </section>
+        <section class="local-container">
+          <div class="local--header">
+            <h2 class="header__index">지역별</h2>
+            <p class="header__total-infection">총 확진자</p>
+            <p class="header__prev-infection">오늘 확진자</p>
+          </div>
+          <!-- class="dark" / "light" 배경색 구분 -->
+          <ul class="local--list" aria-label="지역별 확진자 목록">
+            <li>
+              <div id="city-15" class="has-local-data local__item">
+                <!-- 서울특별시 -->
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p class="local__city">경기도</p>
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-12" class="has-local-data local__details">
+                  <!-- 인천광역시 -->
+                </div>
+              </div>
+            </li>
+            <li>
+              <div id="city-7" class="has-local-data local__item">
+                <!-- 강원도 -->
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p class="local__city">경상도</p>
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-13" class="has-local-data local__details">
+                  <!-- 대구 -->
+                </div>
+                <div id="city-14" class="has-local-data local__details">
+                  <!-- 부산 -->
+                </div>
+                <div id="city-9" class="has-local-data local__details">
+                  <!-- 울산 -->
+                </div>
+                <div id="city-2" class="has-local-data local__details">
+                  <!-- 경북 -->
+                </div>
+                <div id="city-1" class="has-local-data local__details">
+                  <!-- 경남 -->
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                전라도
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-11" class="has-local-data local__details">
+                  <!-- 광주 -->
+                </div>
+                <div id="city-4" class="has-local-data local__details">
+                  <!-- 전북 -->
+                </div>
+                <div id="city-3" class="has-local-data local__details">
+                  <!-- 전남 -->
+                </div>
+              </div>
+            </li>
+            <li>
+              <div id="city-0" class="has-local-data local__item">
+                <!-- 제주 -->
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                충청도
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-8" class="has-local-data local__details">
+                  <!-- 세종 -->
+                </div>
+                <div id="city-10" class="has-local-data local__details">
+                  <!-- 대전 -->
+                </div>
+                <div id="city-6" class="has-local-data local__details">
+                  <!-- 충북 -->
+                </div>
+                <div id="city-5" class="has-local-data local__details">
+                  <!-- 충남 -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
       </section>
-    </section>
-    <section class="popup-container">
-      <div class="popup">
-        <label for="light-btn" class="light-label labels">
-          <span class="material-icons light-mode-icon"> light_mode </span>
-          <span class="light-mode-text">라이트 모드</span>
-        </label>
-        <input type="radio" class="popup-btn" id="light-btn" name="dark-mode" checked="checked" />
-        <label for="dark-btn" class="dark-label labels">
-          <span class="material-icons dark-mode-icon"> dark_mode </span>
-          <span class="dark-mode-text">다크 모드</span>
-        </label>
-        <input type="radio" class="popup-btn" id="dark-btn" name="dark-mode" />
-        <div>
-          <button class="btn-close">닫기</button>
+      <section class="popup-container">
+        <div class="popup">
+          <label for="light-btn" class="light-label labels">
+            <span class="material-icons light-mode-icon"> light_mode </span>
+            <span class="light-mode-text">라이트 모드</span>
+          </label>
+          <input
+            type="radio"
+            class="popup-btn"
+            id="light-btn"
+            name="dark-mode"
+            checked="checked"
+          />
+          <label for="dark-btn" class="dark-label labels">
+            <span class="material-icons dark-mode-icon"> dark_mode </span>
+            <span class="dark-mode-text">다크 모드</span>
+          </label>
+          <input
+            type="radio"
+            class="popup-btn"
+            id="dark-btn"
+            name="dark-mode"
+          />
+          <div>
+            <button class="btn-close">닫기</button>
+          </div>
+        </div>
+        <div class="popup-overlay"></div>
+      </section>
+      <div class="go-to-top">
+        <span class="scroll-arrow material-icons">double_arrow</span>
+      </div>
+      <footer class="footer">
+        <div class="github-container">
+          <ul class="github-list">
+            <li>
+              <a href="https://github.com/green9930" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img
+                      class="profile"
+                      src="./media/image/green9930-profile.jpg"
+                      alt="배근아 깃허브"
+                    />
+                  </div>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />green9930
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/hyorard-b" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img
+                      class="profile"
+                      src="./media/image/hyorard-profile.jpg"
+                      alt="김효성 깃허브"
+                    />
+                  </div>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />hyorard-b
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/choisuhyeok1255" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img
+                      class="profile"
+                      src="./media/image/green9930-profile.jpg"
+                      alt="최수혁 깃허브"
+                    />
+                  </div>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />choisuhyeok1255
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="popup-overlay"></div>

@@ -1,17 +1,28 @@
 import renderSideNav from './render/side-nav';
 import tabHandler from './utils/tabs';
 import barChart from './utils/chart';
-import popup from "./render/popup";
-import { initCalendar, changeCalendar } from './render/calendar';
 import mapHandler from './render/map';
-
-const renderingDate = new Date();
+import localInf from './utils/local';
+import renderLocalData from './render/local-infection';
+import popup from './render/popup';
+import { initCalendar } from './render/calendar';
+import watchMonthChange from './utils/calendar/watch-month-change';
+import globalStates from './globalStates';
+import goToTop from './utils/goToTop';
+import renderTotal from './render/total';
 
 window.addEventListener('DOMContentLoaded', () => {
+  globalStates.renderingDate = new Date();
+
+  renderTotal(globalStates.renderingDate);
   renderSideNav();
   tabHandler();
   barChart();
+  localInf();
+  renderLocalData();
   popup();
-  initCalendar(renderingDate);
   mapHandler();
+  initCalendar(globalStates.renderingDate);
+  watchMonthChange();
+  goToTop();
 });

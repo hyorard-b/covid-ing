@@ -32,7 +32,7 @@ router.get('/city/:date', async (req, res) => {
     const { date } = req.params;
     const data = await getCityStatusData(date);
 
-    res.json(data.response);
+    res.json(data.response.body.items.item);
   } catch (e) {
     console.error(e);
   }

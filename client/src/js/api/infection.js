@@ -1,17 +1,17 @@
 import axios from 'axios';
-import { parseISO, sub, format, startOfDay } from 'date-fns';
+import { parseISO, format } from 'date-fns';
 
 const INFECT_URL = 'http://localhost:5000/corona/infect/';
 
 const getInfects = async (startDay, endDay) => {
   // startDay - 1 일 거 부터 가져와야 함
   const startDayObj = parseISO(startDay);
-  const dayBefore = format(sub(startDayObj, { days: 1 }), 'yyyyMMdd');
+  const dayBefore = format(startDayObj, 'yyyyMMdd');
 
   const url = `${INFECT_URL + dayBefore}/${endDay}`;
-  const { data: infects } = await axios.get(url);
+  const { data } = await axios.get(url);
 
-  return infects.map(dailyInfect => dailyInfect.decideCnt).reverse();
+  return data;
 };
 
 export default getInfects;
