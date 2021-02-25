@@ -23,23 +23,18 @@ const localInf = () => {
   //   e.target.closest('li').lastElementChild.style.height = `${e.target.closest('li').lastElementChild.scrollHeight}px`;
   // };
 
-
   const isActive = e => {
     const $targetLi = e.target.closest('li');
 
-    if (!$targetLi.lastElementChild.classList.contains('local__sub-list')) return;
+    if (!$targetLi.lastElementChild.classList.contains('local__sub-list'))
+      return;
 
     const $targetUl = e.target.closest('ul');
     const test = [...document.querySelectorAll('.local--list > li')];
 
-    console.log(test);
-    console.log($targetUl);
-    console.log($targetLi.lastElementChild.classList.contains('local__sub-list'));
-    console.log($targetLi.lastElementChild);
-    
     $targetLi.classList.toggle('active');
     // $targetLi.classList.remove('active');
-    
+
     if ($targetLi.classList.contains('active'))
       $targetLi.lastElementChild.style.height = `${$targetLi.lastElementChild.scrollHeight}px`;
     else $targetLi.lastElementChild.style.height = '0';
