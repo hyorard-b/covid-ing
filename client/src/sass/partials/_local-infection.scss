@@ -1,25 +1,26 @@
 .local-container {
   width: 100%;
   padding: 50px;
+  background-color: var(--main-bg);
 }
 
 .local--header {
-  color: var(--sub-orange-color);
+  color: var(--fix-high-text);
 }
 
 .local--list > li {
   font-size: 1.4rem;
-  color: var(--infection-font-color);
+  color: var(--main-text);
   border-radius: 5px;
   margin: 7px;
 }
 
 .local--list > li:nth-child(odd) {
-  background-color: var(--infection-odd-color);
+  background-color: var(--sub-bg);
 }
 
 .local--list > li:nth-child(even) {
-  background-color: var(--infection-even-color);
+  background-color: var(--even-bg);
 }
 
 .local--header {
@@ -32,11 +33,11 @@
 .local__item,
 .local__details {
   display: flex;
-  position: relative;  
-  padding: 20px 30px;  
+  position: relative;
+  padding: 20px 30px;
   border-radius: 5px;
   justify-content: space-between;
-  border: 0.5px solid rgba(var(--tab-white-color), 0.3);
+  border: 1px solid var(--fix-border);
   transition: all 0.2s ease-in-out;
 }
 
@@ -76,15 +77,12 @@
 .local__sub-list {
   height: 0;
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: var(--main-bg);
   transition: all 0.4s ease-in-out;
 }
 
 .local__details {
-  // display: none;
-  // height: 0;
-  // justify-content: space-between;
-  background-color: #FFFFFF;
+  background-color: var(--fix-det-bg);
   transition: height 0.4s ease-in-out;
 }
 
@@ -97,10 +95,9 @@
   position: relative;
   // margin: 7px;
   background-color: transparent;
-  
+
   .local__item {
-    background-color: rgba(var(--main-green-color));
-    color: var(--infection-odd-color);
+    background-color: var(--fix-theme-text);
     border-radius: 5px;
   }
 
@@ -110,13 +107,9 @@
 
   .local__details {
     border-radius: 5px;
+    color: #616161;
     display: flex;
     margin: 7px 0px;
-    // background-color: #FFFBF5;
-    background-color: #F3FFF9;
-    // background-color: var(--infection-odd-color);
-    border: 0.5px solid rgba(var(--main-green-color), 0.3);
-    // border: 0.5px solid rgba(251, 151, 54, 0.5);
-    // border: 0.5px solid rgba(243, 255, 249, 1);
+    border: 1px solid rgba(54, 187, 117, 0.3);
   }
 }

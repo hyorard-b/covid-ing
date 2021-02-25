@@ -1,6 +1,4 @@
-import {
-  controllers
-} from "chart.js";
+import { controllers } from 'chart.js';
 
 const $popup = document.querySelector('.popup');
 const $popupOverlay = document.querySelector('.popup-overlay');
@@ -13,16 +11,14 @@ const myStorage = window.localStorage;
 
 const popupHandler = () => {
   const darkmode = myStorage.getItem('setMode');
-  
+
   if (darkmode === null) {
     $popup.style.setProperty('display', 'block');
     $popupOverlay.style.setProperty('display', 'block');
+  } else if (darkmode === 'light') {
+    changeLight();
   } else {
-    if ( darkmode === 'light') {
-      changeLight();
-    } else {
-      changeDark();
-    }
+    changeDark();
   }
 
   $btnClose.onclick = () => {
@@ -48,39 +44,38 @@ const popupHandler = () => {
   $setDarkBtn.onclick = () => {
     const darkmode = myStorage.getItem('setMode');
 
-    if(darkmode === 'light') changeDark();
+    if (darkmode === 'light') changeDark();
 
-    if(darkmode === 'dark') changeLight();
+    if (darkmode === 'dark') changeLight();
   };
 };
 
 const changeLight = () => {
   myStorage.setItem('setMode', 'light');
-  document.documentElement.style.setProperty('--bg-color', '#FFFFFF');
-  document.documentElement.style.setProperty('--popup-bg-color', '#FFFFFF');
-  document.documentElement.style.setProperty('--popup-btn-color', '#F1F1F1');
-  document.documentElement.style.setProperty('--popup-lightSpan-color', '#000000');
-  document.documentElement.style.setProperty('--popup-darkSpan-color', '#000000');
-  document.documentElement.style.setProperty('--popup-closeBtn-color', '#000000');
-  document.documentElement.style.setProperty('--header-icon-color', '#7A7A7A');
-  document.documentElement.style.setProperty('--infection-odd-color', '#FCFCFC');
-  document.documentElement.style.setProperty('--infection-even-color', '#F1F1F1');
-  document.documentElement.style.setProperty('--infection-font-color', '#616161');
+  document.documentElement.style.setProperty('--main-bg', '#fff');
+  document.documentElement.style.setProperty('--sub-bg', '#FCFCFC');
+  document.documentElement.style.setProperty('--main-text', '#616161');
+  document.documentElement.style.setProperty('--sub-text', '#A3A3A3');
+  document.documentElement.style.setProperty(
+    '--sel-high-bg',
+    'rgba(251, 151, 54, 0.2)'
+  );
+  document.documentElement.style.setProperty('--even-bg', '#FCFCFC');
+  document.documentElement.style.setProperty('--main-icon', '#7A7A7A');
 };
 
 const changeDark = () => {
   myStorage.setItem('setMode', 'dark');
-  document.documentElement.style.setProperty('--bg-color', '#333333');
-  document.documentElement.style.setProperty('--popup-bg-color', '#333333');
-  document.documentElement.style.setProperty('--popup-btn-color', '#4F4F4F');
-  document.documentElement.style.setProperty('--popup-lightSpan-color', '#FFFFFF');
-  document.documentElement.style.setProperty('--popup-darkSpan-color', '#FFFFFF');
-  document.documentElement.style.setProperty('--popup-closeBtn-color', '#FFFFFF');
-  document.documentElement.style.setProperty('--header-icon-color', '#FCFCFC');
-  document.documentElement.style.setProperty('$main-light', '#FFFFFF');
-  document.documentElement.style.setProperty('--infection-odd-color', '#404040');
-  document.documentElement.style.setProperty('--infection-even-color', '#4D4D4D');
-  document.documentElement.style.setProperty('--infection-font-color', '#FFFFFF');
+  document.documentElement.style.setProperty('--main-bg', '#333');
+  document.documentElement.style.setProperty('--sub-bg', '#404040');
+  document.documentElement.style.setProperty('--main-text', '#fcfcfc');
+  document.documentElement.style.setProperty('--sub-text', '#FCFCFC');
+  document.documentElement.style.setProperty(
+    '--sel-high-bg',
+    'rgba(180, 180, 180, 0.2)'
+  );
+  document.documentElement.style.setProperty('--even-bg', '#4D4D4D');
+  document.documentElement.style.setProperty('--main-icon', '#FCFCFC');
 };
 
 export default popupHandler;

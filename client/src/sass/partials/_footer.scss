@@ -2,7 +2,7 @@
 
 .footer {
   @include container;
-  background: var(--main-green-color);
+  background-color: var(--fix-theme-text);
   height: 160px;
 
   .github-container {
@@ -19,14 +19,14 @@
   li {
     margin-right: 15px;
 
-    a{
+    a {
       display: block;
       width: 70px;
       height: 70px;
     }
   }
 
-  li:last-child{
+  li:last-child {
     margin: 0;
   }
 
@@ -48,7 +48,7 @@
     display: flex;
     justify-content: center;
     line-height: 13px;
-    color: #FCFCFC;
+    color: var(--fix-white-text);
     margin-right: 10px;
 
     img {

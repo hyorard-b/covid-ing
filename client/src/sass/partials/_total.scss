@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
+  background-color: var(--main-bg);
 }
 
 .cumulative-confirm,
@@ -16,23 +17,23 @@
   position: relative;
   height: 70px;
   border-radius: 5px;
+  border: 1px solid var(--fix-border);
 }
 
 .cumulative-confirm {
   width: 230px;
-  background-color: rgb(var(--main-green-color));
+  background-color: var(--fix-theme-text);
 }
 
 .today-confirm {
   width: 180px;
-  background-color: var(--infection-odd-color);
-  border: 1px solid #a3a3a3;
+  background-color: var(--sub-bg);
 }
 
 .compare-last-day {
   width: 120px;
-  background-color: var(--infection-odd-color);
-  border: 1px solid #a3a3a3;
+  background-color: var(--sub-bg);
+  border: 1px solid var(--fix-border);
 }
 
 .confirm-header {
@@ -41,7 +42,7 @@
   left: 0px;
   padding: 10px;
   font-size: 1.2rem;
-  color: rgb(var(--infection-font-color));
+  color: var(--sub-text);
 }
 
 .confirm-content {
@@ -50,10 +51,10 @@
   right: 0px;
   padding: 10px;
   font-size: 2.4rem;
-  color: rgb(var(--main-green-color));
+  color: var(--fix-theme-text);
 }
 
 .cumulative-confirm > .confirm-header,
 .cumulative-confirm > .confirm-content {
-  color: #fff;
+  color: var(--fix-white-text);
 }

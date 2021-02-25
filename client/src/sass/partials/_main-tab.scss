@@ -1,12 +1,13 @@
 @import './common';
 
-#covid-chart{
-  background: var(--bg-color);
+#covid-chart {
+  background: var(--main-bg);
 }
 
 .section-tab {
   @include container;
   position: relative;
+  background-color: var(--main-bg);
 
   .tab-container {
     width: 613px;
@@ -27,9 +28,10 @@
     height: 28px;
     text-align: center;
     line-height: 28px;
-    color: var(--sub-orange-color);
-    border: 1px solid rgba(var(--tab-white-color));
-    border-radius : 5px 5px 0 0;
+    color: var(--fix-high-text);
+    background-color: var(--sub-bg);
+    border: 1px solid var(--fix-border);
+    border-radius: 5px 5px 0 0;
     font-weight: 700;
   }
 
@@ -37,8 +39,9 @@
     cursor: pointer;
   }
 
-  .tab:checked + label{
-    background-color: rgba(var(--sub-orangeAlpha-color), 0.2);
+  .tab:checked + label {
+    background-color: var(--sel-high-bg);
+    border: 1px solid var(--fix-high-text);
   }
 
   .tab-content1,

@@ -1,23 +1,25 @@
-/* 
-sass에서 정적 이미지
-url('../../media/img/example.PNG')
-로 쓸 수 있게 해놓았음.
-*/
-$main-theme: #15b748;
-$main-background: #ffffff;
-$main-light: #fcfcfc;
-$main-dark: #f1f1f1;
-$main-text: #616161;
-$main-border: #868686;
-
-$darkmode-background: #333333;
-$darkmode-light: #7a7a7a;
-$darkmode-dark: #4f4f4f;
-
 html {
-  background-color: #eaeaea;
   font-size: 10px;
-  color: $main-theme;
+
+  --main-bg: #fff;
+  --sub-bg: #fcfcfc;
+  --sel-high-bg: rgba(251, 151, 54, 0.2);
+  --even-bg: #f1f1f1;
+
+  --main-text: #616161;
+  --sub-text: #a3a3a3;
+
+  --main-icon: #7a7a7a;
+
+  --fix-det-bg: #f3fff9;
+  --fix-theme-text: #15b748;
+  --fix-high-text: #fb9736;
+  --fix-white-text: #fff;
+  --fix-border: rgba(134, 134, 134, 0.2);
+}
+
+body {
+  background-color: var(--main-bg);
 }
 
 @mixin container {
@@ -25,7 +27,6 @@ html {
   width: 720px;
   position: relative;
   z-index: 99;
-  background-color: var(--bg-color);
 }
 
 .main-container {
