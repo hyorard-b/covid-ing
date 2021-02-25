@@ -3,11 +3,10 @@ import _ from 'lodash';
 const goToTop = () => {
   const $scrollIcon = document.querySelector('.go-to-top');
 
-  console.log(_.throttle);
-
-  window.addEventListener('scroll', _.throttle(() => {
-    console.log(window.pageYOffset);
-    $scrollIcon.style.display = window.pageYOffset >= 200 ? 'block' : 'none';
+  window.addEventListener(
+    'scroll',
+    _.throttle(() => {
+      $scrollIcon.style.display = window.pageYOffset >= 200 ? 'block' : 'none';
     })
   );
 

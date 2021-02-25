@@ -1,129 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bb91f87e3200873fe2f671ec6d72e8fd&autoload=false&libraries=services,clusterer,drawing"
+    ></script>
+    <link href="./dist/css/style.css" rel="stylesheet" />
+    <script defer src="./dist/js/bundle.js"></script>
+    <link rel=" shortcut icon" href="./media/image/favicon.ico" />
+    <link rel="icon" href="./media/image/favicon.ico" />
+    <title>Covid-ing</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="./dist/css/style.css" rel="stylesheet" />
-  <script defer type="text/javascript"
-    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bb91f87e3200873fe2f671ec6d72e8fd&autoload=false&libraries=services,clusterer,drawing">
-  </script>
-  <script defer src="./dist/js/bundle.js"></script>
-  <link rel=" shortcut icon" href="./media/image/favicon.ico" />
-  <link rel="icon" href="./media/image/favicon.ico" />
-  <title>Covid-ing</title>
-</head>
-
-<body>
-  <div class="content-container">
-    <nav class="side-nav">
-      <div class="side-nav-header">
-        <img class="side-header-logo-img" src="./media/image/coviding-logo.png" alt="헤더 로고" />COVID-ING
-      </div>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <span class="material-icons"> public </span> 전국
-        </li>
-        <li class="nav-item">
-          <span class="material-icons"> date_range </span>
-          일별/월별 확진자
-        </li>
-        <li class="nav-item">
-          <span class="material-icons"> terrain </span> 지역별 확진자
-        </li>
-      </ul>
-      <div class="close-health">
-        <span class="close-health--heading">인접 선별 진료소</span>
-        <div class="close-health--map"></div>
-      </div>
-    </nav>
-    <header class="header">
-      <div class="side-nav-container">
-        <span class="material-icons side-nav-btn"> menu </span>
-      </div>
-      <h1>
-        <a class="logo" href="./index.html"><img class="header-logo-img" src="./media/image/coviding-logo.png"
-            alt="헤더 로고" />COVID-ING</a>
-      </h1>
-      <div class="dark-mode-container">
-        <span class="material-icons set-dark-btn"> wb_sunny </span>
-      </div>
-    </header>
-    <section class="main-container">
-      <section class="section-tab">
-        <div class="tab-container">
-          <nav class="tab-nav">
-            <input type="radio" class="tab1 tab" id="tab-day" name="tab" checked="checked" />
-            <label for="tab-day" class="tab-label">일별</label>
-            <input type="radio" class="tab2 tab" id="tab-month" name="tab" />
-            <label for="tab-month" class="tab-label">월별</label>
-          </nav>
-          <div class="tab-content1 active">
-            <canvas id="covid-chart" width="613px" height="344px"></canvas>
-          </div>
-          <div class="tab-content2">
-            <div class="calendar-nav">
-              <div class="year-month">
-                <div class="year"></div>
-                <div class="month"></div>
-              </div>
-              <span class="material-icons left"> keyboard_arrow_left </span>
-              <span class="material-icons right"> keyboard_arrow_right </span>
-            </div>
-            <div class="calendar-grid">
-              <div class="weekdays"></div>
-              <div class="dates"></div>
-            </div>
-
-            <ul class="month-mow-legend">
-              <li class="mow-legend-item">
-                <div class="legend-color-1"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-2"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-3"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-4"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-5"></div>
-                <span class="legend-text"></span>
-              </li>
-            </ul>
-          </div>
+  <body>
+    <div class="content-container">
+      <nav class="side-nav">
+        <div class="side-nav-header">
+          <img
+            class="side-header-logo-img"
+            src="./media/image/coviding-logo.png"
+            alt="헤더 로고"
+          />COVID-ING
         </div>
-      </section>
-      <section class="local-container">
-        <h2 class="local--header">지역별</h2>
-        <!-- class="dark" / "light" 배경색 구분 -->
-        <ul class="local--list" aria-label="지역별 확진자 목록">
-          <li>
-            <div class="local__item">
-              <p>서울특별시</p>
-            </div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <span class="material-icons"> public </span> 전국
           </li>
-          <li>
-            <div class="local__item">
-              <p>경기도</p>
-              <img class="arrow" src="../../svg/arrow-down.svg" alt="탭 펼쳐보기" />
-            </div>
-            <div class="local__sub-list">
-              <div class="local__details">인천광역시</div>
-            </div>
+          <li class="nav-item">
+            <span class="material-icons"> date_range </span>
+            일별/월별 확진자
           </li>
-          <li>
-            <div class="local__item">
-              <p>강원도</p>
-            </div>
+          <li class="nav-item">
+            <span class="material-icons"> terrain </span> 지역별 확진자
           </li>
         </ul>
         <div class="close-health">
@@ -180,12 +96,42 @@
             <div class="tab-content1 active">
               <canvas id="covid-chart" width="613px" height="344px"></canvas>
             </div>
-            <div class="local__sub-list">
-              <div class="local__details">대구광역시</div>
-              <div class="local__details">부산광역시</div>
-              <div class="local__details">울산광역시</div>
-              <div class="local__details">경상북도</div>
-              <div class="local__details">경상남도</div>
+            <div class="tab-content2">
+              <div class="calendar-nav">
+                <div class="year-month">
+                  <div class="year"></div>
+                  <div class="month"></div>
+                </div>
+                <span class="material-icons left"> keyboard_arrow_left </span>
+                <span class="material-icons right"> keyboard_arrow_right </span>
+              </div>
+              <div class="calendar-grid">
+                <div class="weekdays"></div>
+                <div class="dates"></div>
+              </div>
+
+              <ul class="month-mow-legend">
+                <li class="mow-legend-item">
+                  <div class="legend-color-1"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-2"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-3"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-4"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-5"></div>
+                  <span class="legend-text"></span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -315,6 +261,19 @@
         </div>
         <div class="popup-overlay"></div>
       </section>
+      <section class="clinic-map">
+        <h2 class="map--header">인접 선별 진료소</h2>
+        <div class="map--container">
+          <div id="map" style="width: 400px; height: 300px"></div>
+          <ul class="clinic-list">
+            <li class="clinic current-location">현재 위치</li>
+          </ul>
+        </div>
+        <div class="map-btn">
+          <button class="left-btn"><</button>
+          <button class="right-btn">></button>
+        </div>
+      </section>
       <div class="go-to-top">
         <span class="scroll-arrow material-icons">double_arrow</span>
       </div>
@@ -380,65 +339,7 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="popup-overlay"></div>
-    </section>
-    <section class="clinic-map">
-      <h2 class="map--header">인접 선별 진료소</h2>
-      <div class="map--container">
-        <div id="map" style="width:400px; height:300px;"></div>
-        <ul class="clinic-list">
-          <li class="clinic current-location">현재 위치</li>
-        </ul>
-      </div>
-      <div class="map-btn">
-        <button class="left-btn"><</button> 
-        <button class="right-btn">></button>
-      </div>
-    </section>
-    <footer class="footer">
-      <div class="github-container">
-        <ul class="github-list">
-          <li>
-            <a href="https://github.com/green9930" target="_blank">
-              <figure>
-                <div class="profile-container">
-                  <img class="profile" src="./media/image/green9930-profile.jpg" alt="배근아 깃허브" />
-                </div>
-                <figcaption class="github-id">
-                  <img src="./media/image/github-logo.svg" alt="깃허브 로고" />green9930
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/hyorard-b" target="_blank">
-              <figure>
-                <div class="profile-container">
-                  <img class="profile" src="./media/image/hyorard-profile.jpg" alt="김효성 깃허브" />
-                </div>
-                <figcaption class="github-id">
-                  <img src="./media/image/github-logo.svg" alt="깃허브 로고" />hyorard-b
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/choisuhyeok1255" target="_blank">
-              <figure>
-                <div class="profile-container">
-                  <img class="profile" src="./media/image/green9930-profile.jpg" alt="최수혁 깃허브" />
-                </div>
-                <figcaption class="github-id">
-                  <img src="./media/image/github-logo.svg" alt="깃허브 로고" />choisuhyeok1255
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </div>
-</body>
-
+      </footer>
+    </div>
+  </body>
 </html>
