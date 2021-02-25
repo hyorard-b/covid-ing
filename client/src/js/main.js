@@ -7,10 +7,12 @@ import popup from './render/popup';
 import { initCalendar } from './render/calendar';
 import watchMonthChange from './utils/calendar/watch-month-change';
 import globalStates from './globalStates';
+import renderTotal from './render/total';
 
 window.addEventListener('DOMContentLoaded', () => {
   globalStates.renderingDate = new Date();
 
+  renderTotal(globalStates.renderingDate);
   renderSideNav();
   tabHandler();
   barChart();
