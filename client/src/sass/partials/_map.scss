@@ -1,0 +1,47 @@
+@import './common';
+
+.clinic-map{
+  position: relative;
+  margin-bottom: 20px;
+
+  .map--header{
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .map--container{
+    width: 600px;
+    margin: 0 auto;
+    #map{
+      // margin: 20px auto;
+      display: inline-block;
+    }
+
+    .clinic-list{
+      display: inline-block;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    //li 요소
+    .clinic{
+      margin-bottom: 5px;
+    }
+  }
+  
+
+  .map-btn{
+    position: absolute;
+    display: inline-block;
+    width: 150px;
+    // margin: 0 auto;
+    top: 290px;
+    right: 60px;
+
+  }
+
+  .current-location{
+    background: yellow;
+  }
+}
