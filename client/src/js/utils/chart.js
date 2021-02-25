@@ -1,15 +1,23 @@
 import Chart from 'chart.js';
+import getInfectPerDay from './infects';
+import {format, subDays} from 'date-fns';
 
 let myChartOne = document.getElementById('covid-chart').getContext('2d');
 
-const barChart = () => {
+const barChart = async () => {
+
+  const confirmedPerson = await getInfectPerDay(getsevendaysBefore(), getToday());
+
+  // 다크모드 컬러 예시
+  // const fontColor = localStorage.getItem('darkmode') === 'light' ? '#fff' : '#000';
+
   new Chart(myChartOne, {
     type: 'line',
     data: {
-      labels: ['2월 1일', '2월 2일', '2월 3일', '2월 4일', '2월 5일', '2월 6일', '2월 7일'],
+      labels: getsevenDays(),
       datasets: [{
         label: '일별 확진자',
-        data: [100, 10, 100, 200, 500, 400, 662],
+        data: confirmedPerson,
         backgroundColor: ['rgba(255, 99, 132, 0.2)'],
         borderColor: ['rbga(255, 99, 132, 0.3']
       }]
@@ -36,6 +44,38 @@ const barChart = () => {
       }
     }
   });
-}
+};
+
+const getToday = () => {
+  const date = new Date();
+  const year = date.getFullYear() + '';
+  let month = (date.getMonth() + 1) + '';
+  const day = date.getDate() + '';
+
+  if (month < 10) month = '0' + month;
+  const today = year + month + day;
+
+  return today;
+};
+
+// 통신용
+const getsevendaysBefore = () => {
+  const today = getToday();
+  const sevendaysBefore = (+today - 7) + '';
+
+  return sevendaysBefore;
+};
+
+// 날짜 렌더링용
+const getsevenDays = () => {
+  const days = [];
+  const date = new Date();
+
+  for (let i = 1; i < 8; i++) {
+    days.push(format(subDays(date, i), 'MM/dd'));
+  }
+
+  return days.reverse();
+};
 
 export default barChart;
