@@ -1,26 +1,6 @@
 @import './common';
 
-:root {
-  --bg-color: #FFFFFF;
-  --header-icon-color: #7A7A7A;
-  --popup-bg-color: #FFFFFF;
-  --popup-btn-color: #F1F1F1;
-  --popup-lightImg-color: #FFFFFF;
-  --popup-lightSpan-color: #000000;
-  --popup-darkSpan-color: #000000;
-  --popup-closeBtn-color: #000000;
-  --main-green-color: 21, 183, 72;
-  --sub-orange-color: #FB9736;
-  --sub-orangeAlpha-color: 251, 151, 54;
-  --tab-white-color: 97, 97, 97;
-  --tab-dark-clickAlpha-color: 180, 180, 180;
-  --tab-dark-nonclick-color: #404040;
-  --infection-odd-color : #FCFCFC;
-  --infection-even-color : #F1F1F1;
-  --infection-font-color : #616161;
-}
-
-body{
+body {
   background: var(--bg-color);
 }
 
@@ -90,7 +70,6 @@ body{
 
     .light-mode-text {
       color: var(--popup-lightSpan-color);
-
     }
 
     .dark-mode-text {
@@ -124,14 +103,13 @@ body{
     display: none;
     z-index: 100;
     background: grey;
-    opacity: .7;
+    opacity: 0.7;
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
   }
-
 
   .btn-close {
     width: 250px;
