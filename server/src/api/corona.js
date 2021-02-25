@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-
-const serviceKey = process.env.API_KEY2;
+const serviceKey = process.env.API_KEY3;
 const router = express.Router();
 
 const encodeURI = (url, startDay, endDay) => {

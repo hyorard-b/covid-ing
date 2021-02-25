@@ -1,6 +1,7 @@
 import renderSideNav from './render/side-nav';
 import tabHandler from './utils/tabs';
 import barChart from './utils/chart';
+import mapHandler from './render/map';
 import localInf from './utils/local';
 import renderLocalData from './render/local-infection';
 import popup from './render/popup';
@@ -20,6 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
   localInf();
   renderLocalData();
   popup();
+  mapHandler();
   initCalendar(globalStates.renderingDate);
   watchMonthChange();
   goToTop();
