@@ -2,13 +2,13 @@ import _ from 'lodash';
 
 const goToTop = () => {
   const $scrollIcon = document.querySelector('.go-to-top');
+  const POSITION_WHEN_SHOWUP = 150;
 
-  window.addEventListener(
-    'scroll',
-    _.throttle(() => {
-      $scrollIcon.style.display = window.pageYOffset >= 200 ? 'block' : 'none';
-    })
-  );
+  const scrollShowup = _.throttle(() => {
+    $scrollIcon.classList.toggle('showup', window.pageYOffset >= POSITION_WHEN_SHOWUP)
+  }, 500);
+
+  window.addEventListener('scroll', scrollShowup);
 
   $scrollIcon.addEventListener('click', () => {
     window.scroll({

@@ -60,7 +60,7 @@ const changeLight = () => {
     '--sel-high-bg',
     'rgba(251, 151, 54, 0.2)'
   );
-  document.documentElement.style.setProperty('--even-bg', '#FCFCFC');
+  document.documentElement.style.setProperty('--even-bg', '#F1F1F1');
   document.documentElement.style.setProperty('--main-icon', '#7A7A7A');
 };
 
