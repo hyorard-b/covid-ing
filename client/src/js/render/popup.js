@@ -62,6 +62,9 @@ const changeLight = () => {
   );
   document.documentElement.style.setProperty('--even-bg', '#F1F1F1');
   document.documentElement.style.setProperty('--main-icon', '#7A7A7A');
+  document.documentElement.style.setProperty('--popup-light-icon-bg', '#FFF');
+  document.documentElement.style.setProperty('--popup-dark-icon-bg', '#252525');
+  document.documentElement.style.setProperty('--popup-btn-bg', '#f1f1f1');
 };
 
 const changeDark = () => {
@@ -76,6 +79,9 @@ const changeDark = () => {
   );
   document.documentElement.style.setProperty('--even-bg', '#4D4D4D');
   document.documentElement.style.setProperty('--main-icon', '#FCFCFC');
+  document.documentElement.style.setProperty('--popup-light-icon-bg', '#252525');
+  document.documentElement.style.setProperty('--popup-dark-icon-bg', '#FFF');
+  document.documentElement.style.setProperty('--popup-btn-bg', '#4F4F4F');
 };
 
 export default popupHandler;
