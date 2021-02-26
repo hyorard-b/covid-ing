@@ -8,6 +8,7 @@
   align-items: center;
   padding-top: 7%;
   font-size: 1.4rem;
+  width: 613px;
 
   .calendar-nav {
     position: relative;
@@ -31,16 +32,14 @@
   .calendar-grid {
     display: grid;
     grid-template-rows: 35px;
-    justify-items: center;
     align-items: center;
     border-radius: 0 0 10px 10px;
     width: 80%;
-    margin: 0 auto;
     height: 100%;
+    margin: 0 auto;
 
     .weekdays {
       display: grid;
-      gap: 5px;
       grid-template-columns: repeat(7, 1fr);
       justify-items: center;
       align-items: center;
@@ -63,12 +62,12 @@
 
     .dates > span {
       display: block;
-      padding: 30px;
       color: var(--fix-white-text);
       // background-color: $main-theme;
       width: 100%;
-      border-radius: 10px;
+      border-radius: 7px;
       position: relative;
+      padding: 20px 0;
 
       .num-infection {
         opacity: 0;
