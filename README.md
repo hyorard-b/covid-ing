@@ -1,70 +1,74 @@
 # 코로나-19 확진자 정보를 간단하게, COVID-ING
 
-![license](https://img.shields.io/badge/license-MIT-brightgreen) 
-![webpack](https://img.shields.io/badge/webpack-5.23.0-lightblue) ![Babel](https://img.shields.io/badge/Babel-7.12.17-yellow)
-![HTML](https://img.shields.io/badge/HTML-5-green) ![SASS](https://img.shields.io/badge/SASS-1.32.7-red) ![JavaScript](https://img.shields.io/badge/JavaScript-14.15.0-blueviolet) ![chart.js](https://img.shields.io/badge/chart.js-2.9.4-blueviolet) ![axios](https://img.shields.io/badge/axios-0.21.1-purple) ![date-fns](https://img.shields.io/badge/date--fns-2.17.0-crimson) ![Lodash](https://img.shields.io/badge/Lodash-4.17.21-blue) 
-![express](https://img.shields.io/badge/express-4.17.1-yellowgreen) ![MORGAN](https://img.shields.io/badge/MORGAN-1.10.0-darkblue) 
-![eslint](https://img.shields.io/badge/eslint-7.18.0-pink)
-
+![license](https://img.shields.io/badge/license-MIT-brightgreen)  
+![webpack](https://img.shields.io/badge/webpack-5.23.0-lightblue) ![Babel](https://img.shields.io/badge/Babel-7.12.17-yellow)  
+![HTML](https://img.shields.io/badge/HTML-5-green) ![SASS](https://img.shields.io/badge/SASS-1.32.7-red) ![JavaScript](https://img.shields.io/badge/JavaScript-14.15.0-blueviolet) ![chart.js](https://img.shields.io/badge/chart.js-2.9.4-blueviolet) ![axios](https://img.shields.io/badge/axios-0.21.1-purple) ![date-fns](https://img.shields.io/badge/date--fns-2.17.0-crimson) ![Lodash](https://img.shields.io/badge/Lodash-4.17.21-blue)  
+![express](https://img.shields.io/badge/express-4.17.1-yellowgreen) ![MORGAN](https://img.shields.io/badge/MORGAN-1.10.0-darkblue)  
+![eslint](https://img.shields.io/badge/eslint-7.18.0-pink)  
+  
 ---
+  
 ## 기획 의도
 
-자바스크립트 및 공공데이터 api를 활용하여 코로나-19 확진자 정보를 제공하는 웹페이지 제작.
-
+자바스크립트 및 공공데이터 api를 활용하여 코로나-19 확진자 정보를 제공하는 웹페이지 제작.  
+  
 ---
-
+  
 ## 팀원 소개
 
-[김효성](https://github.com/hyorard-b)
-[배근아](https://github.com/green9930)
-[최수혁](https://github.com/choisuhyeok1255)
-
+[김효성](https://github.com/hyorard-b)  
+[배근아](https://github.com/green9930)  
+[최수혁](https://github.com/choisuhyeok1255)  
+  
 ---
-
+  
 ## 프로젝트 진행
 
-1. 구상 및 기획 (프로젝트 주제, 사용 기술)
-2. 코딩 컨벤션 결정 및 마크업
-3. 기능 구현
-4. 리팩토링
-
+1. 구상 및 기획 (프로젝트 주제, 사용 기술)  
+2. 코딩 컨벤션 결정 및 마크업  
+3. 기능 구현  
+4. 리팩토링  
+  
 ---
-
+  
 ## DEMO
 
-![covid-ing 데모 영상](./assets/demo.gif)
-
+![covid-ing 데모 영상](./assets/demo.gif)  
+  
 ---
-
+  
 ## DESIGN
-Reference : [코로나 라이브](https://corona-live.com/)
 
-Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=0%3A1
+Reference : [코로나 라이브](https://corona-live.com/)  
 
+Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=0%3A1  
+  
 ---
-
+  
 ## API 사용
-공공 데이터 포털 : https://www.data.go.kr/index.do
+
+공공 데이터 포털 : https://www.data.go.kr/index.do  
 - [코로나-19 감염 현황](https://www.data.go.kr/data/15043376/openapi.do)
 - [코로나-19 시도 발생 현황](https://www.data.go.kr/data/15043378/openapi.do)
 
-지도 API
+지도 API  
 - [카카오 맵](ㅅhttps://apis.map.kakao.com/)
-
+  
 ---
-
+  
 ## 팀원별 리뷰
-
+   
 ### 김효성
-- 서버, 클라이언트 개발 환경 설정
-- 서버 API
-- 클라이언트 API
-- 헤더
-- 사이드 네비게이션
-- 월별 확진자 현황
 
-**감염 현황 데이터 형식**
-
+- 서버, 클라이언트 개발 환경 설정  
+- 서버 API  
+- 클라이언트 API  
+- 헤더  
+- 사이드 네비게이션  
+- 월별 확진자 현황  
+  
+**감염 현황 데이터 형식**  
+  
 ```json
 [
   {
@@ -116,10 +120,10 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
       "updateDt": "null"
   }
 ]
-
 ```
+  
+**감염 현황 데이터 정제**   
 
-**감염 현황 데이터 정제**
 ```js
   const getInfectPerDay = async (startDay, dayCount) => {
     const data = await getInfects(startDay, dayCount);
@@ -155,11 +159,10 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 
     return dailyInfects;
 };
-
 ```
-
-**월 별 감염 현황 범주 계산**
-
+  
+**월 별 감염 현황 범주 계산**  
+  
 ```js
 const calcInfectLegend = infectsPerDay => {
   const [minInfect, maxInfect] = [
@@ -172,11 +175,10 @@ const calcInfectLegend = infectsPerDay => {
   );
 };
 ```
-
-**달력 일자 렌더링 및 잔디 찍기**
-
-```javascript
-
+  
+**달력 일자 렌더링 및 잔디 찍기**  
+  
+```js
 const renderDates = (renderingDateObj, infectsPerDay, legends) => {
   const lastMonthDates = getLastMonthDates(renderingDateObj);
   const currentMonthDates = getCurrentMonthDates(renderingDateObj);
@@ -239,17 +241,17 @@ const renderDates = (renderingDateObj, infectsPerDay, legends) => {
 
   $dates.appendChild($totalDates);
 };
-
+  
 ```
 <br>
 
 ### 배근아
+
 - COVID-ING 웹페이지 디자인 
 - 지역별 확진자 (시도 발생 현황 api)
-<br>
-
-**지역별 확진자 데이터**
-
+  
+**지역별 확진자 데이터**  
+  
 ```js
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -269,9 +271,9 @@ const getCityData = async () => {
 
 export default getCityData;
 ```
-
-**지역별 확진자 아코디언 ui**
-
+  
+**지역별 확진자 아코디언 ui**  
+  
 ```html
 <ul class="local--list" aria-label="지역별 확진자 목록">
   <li>
@@ -291,7 +293,7 @@ export default getCityData;
     </div>
   </li>
 ```
-
+  
 ```js
 const isActive = e => {
   const $targetLi = e.target.closest('li');
@@ -305,29 +307,30 @@ const isActive = e => {
 };
 
 document.querySelector('.local--list').addEventListener('click', isActive);
-
+  
 ```
 <br>
-
-### 최수혁
+  
+### 최수혁  
+  
 - 팝업창 (다크모드)
 - 일별/월별 확진자 탭 ui
 - 일별 확진자 그래프 (chart.js + 코로나 API)
 - 인접 선별 진료소 (map API)
-
+  
 **chart part**
-
-(확진자 수 API)
-
+  
+(확진자 수 API)  
+  
 ```js
 const confirmedPerson = await getInfectPerDay(
   getsevendaysBefore(),
   getToday()
 );
 ```
-
-(7일전 날짜 계산)
-
+  
+(7일전 날짜 계산)  
+  
 ```js
 const getsevendaysBefore = () => {
   const today = getToday();
@@ -336,9 +339,9 @@ const getsevendaysBefore = () => {
   return sevendaysBefore;
 };
 ```
-
-(차트 x축 날짜 입력)
-
+  
+(차트 x축 날짜 입력)  
+  
 ```js
 const getsevenDays = () => {
   const days = [];
@@ -351,9 +354,9 @@ const getsevenDays = () => {
   return days.reverse();
 };
 ```
-
-**map part**
-
+  
+**map part**  
+  
 ```js
 const distance = [];
 const linePath = [];
@@ -390,7 +393,7 @@ for (let i = 0; i < data.length; i++) {
   data.sort(objectSort);
 }
 ```
-
+  
 --- 
-
+  
 ## 마치며,
