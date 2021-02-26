@@ -9,7 +9,7 @@
 ---
 ## 기획 의도
 
-2020년부터 현재까지 전세계적으로 가장 큰 이슈인 코로나-19의 
+공공데이터 api를 활용하여 코로나-19의 정보를 제공하는 웹사이트 제작.
 
 ---
 
@@ -37,10 +37,12 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 ---
 
 ## API 사용
-공공 데이터 포털 https://www.data.go.kr/index.do
+공공 데이터 포털 : https://www.data.go.kr/index.do
+- [코로나-19 감염 현황](https://www.data.go.kr/data/15043376/openapi.do)
+- [코로나-19 시도 발생 현황](https://www.data.go.kr/data/15043378/openapi.do)
 
-[코로나-19 감염 현황](https://www.data.go.kr/data/15043376/openapi.do)
-[코로나-19 시도 발생 현황](https://www.data.go.kr/data/15043378/openapi.do)
+지도 API
+- [카카오 맵](ㅅhttps://apis.map.kakao.com/)
 
 ---
 
@@ -49,9 +51,69 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 ### 김효성
 
 ### 배근아
-- COVID-ING 전체 디자인 
-- 지역별 확진자 탭
+- COVID-ING 웹페이지 디자인 
+- 지역별 확진자 (시도 발생 현황 api)
+<br>
 
+**지역별 확진자 데이터**
+
+```js
+import axios from 'axios';
+import { format } from 'date-fns';
+
+const getCityData = async () => {
+  const CITY_URL = 'http://localhost:5000/corona/city/';
+  const today = format(new Date(), 'yyyyMMdd');
+  const url = CITY_URL + today;
+  const { data } = await axios.get(url);
+
+  return [...data]
+    .map(({ gubun, defCnt, incDec }) => {
+      return [gubun, defCnt, incDec];
+    })
+    .filter((_, i) => !(i === 0 || i === 9 || i === 18));
+};
+
+export default getCityData;
+```
+
+**지역별 확진자 아코디언 ui**
+
+```html
+<ul class="local--list" aria-label="지역별 확진자 목록">
+  <li>
+    <div id="city-15" class="has-local-data local__item">
+      <!-- 서울특별시 -->
+    </div>
+  </li>
+  <li>
+    <div class="local__item">
+      <p class="local__city">경기도</p>
+      <span class="arrow material-icons">keyboard_arrow_down</span>
+    </div>
+    <div class="local__sub-list">
+      <div id="city-12" class="has-local-data local__details">
+        <!-- 인천광역시 -->
+      </div>
+    </div>
+  </li>
+```
+
+```js
+const isActive = e => {
+  const $targetLi = e.target.closest('li');
+
+  if (!$targetLi.lastElementChild.classList.contains('local__sub-list')) return;
+  $targetLi.classList.toggle('active');
+
+  if ($targetLi.classList.contains('active'))
+    $targetLi.lastElementChild.style.height = `${$targetLi.lastElementChild.scrollHeight}px`;
+  else $targetLi.lastElementChild.style.height = '0';
+};
+
+document.querySelector('.local--list').addEventListener('click', isActive);
+
+```
 
 
 ### 최수혁
