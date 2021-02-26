@@ -30,8 +30,15 @@
 
 ---
 
+## DEMO
+
+![covid-ing 데모 영상](./assets/demo.gif)
+
+---
+
 ## DESIGN
 Reference : [코로나 라이브](https://corona-live.com/)
+
 Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=0%3A1
 
 ---
@@ -47,6 +54,187 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 ## 팀원별 리뷰
 
 ### 김효성
+
+- 감염 현황 데이터 형식
+
+  ```json
+  [
+    {
+        "accDefRate": 1.3635992813,
+        "accExamCnt": 6590066,
+        "accExamCompCnt": 6521124,
+        "careCnt": 7457,
+        "clearCnt": 79880,
+        "createDt": "2021-02-26 09:32:51.735",
+        "deathCnt": 1585,
+        "decideCnt": 88922,
+        "examCnt": 68942,
+        "resutlNegCnt": 6432202,
+        "seq": 431,
+        "stateDt": 20210226,
+        "stateTime": "00:00",
+        "updateDt": "null"
+    },
+    {
+        "accDefRate": 1.3654520094,
+        "accExamCnt": 6551214,
+        "accExamCompCnt": 6482542,
+        "careCnt": 7448,
+        "clearCnt": 79487,
+        "createDt": "2021-02-25 09:31:53.266",
+        "deathCnt": 1581,
+        "decideCnt": 88516,
+        "examCnt": 68672,
+        "resutlNegCnt": 6394026,
+        "seq": 430,
+        "stateDt": 20210225,
+        "stateTime": "00:00",
+        "updateDt": "null"
+    },
+    {
+        "accDefRate": 1.3691733996,
+        "accExamCnt": 6510988,
+        "accExamCompCnt": 6436000,
+        "careCnt": 7494,
+        "clearCnt": 79050,
+        "createDt": "2021-02-24 09:33:42.127",
+        "deathCnt": 1576,
+        "decideCnt": 88120,
+        "examCnt": 74988,
+        "resutlNegCnt": 6347880,
+        "seq": 429,
+        "stateDt": 20210224,
+        "stateTime": "00:00",
+        "updateDt": "null"
+    }
+    ...
+    ]
+
+  ```
+
+- 감염 현황 데이터 정제
+  ```javascript
+    const getInfectPerDay = async (startDay, dayCount) => {
+      const data = await getInfects(startDay, dayCount);
+
+      if (!data) return data;
+
+      // 중복 제거
+      const setOfData = [...data].reduce((infects, infect) => {
+        const isDuplicated =
+          infects.filter(({ stateDt }) => infect.stateDt === stateDt).length > 0;
+
+        if (isDuplicated) return infects;
+        infects.push({ stateDt: infect.stateDt, decideCnt: infect.decideCnt });
+
+        return infects;
+      }, []);
+
+      const infects = setOfData.map(dailyInfect => dailyInfect.decideCnt).reverse();
+
+      // 잘못된 api 데이터 처리
+      infects.sort();
+
+      const dailyInfects = infects.reduce(
+        (dailyInfects, dayInfect, day, infects) => {
+          if (day === 0) return dailyInfects;
+
+          dailyInfects.push(dayInfect - infects[day - 1]);
+
+          return dailyInfects;
+        },
+        []
+      );
+
+      return dailyInfects;
+  };
+
+  ```
+
+- 월 별 감염 현황 범주 계산
+
+  ```javascript
+    const calcInfectLegend = infectsPerDay => {
+      const [minInfect, maxInfect] = [
+        Math.min(...infectsPerDay),
+        Math.max(...infectsPerDay)
+      ];
+
+      return [0.2, 0.4, 0.6, 0.8, 1].map(percentage =>
+        Math.floor(minInfect + (maxInfect - minInfect) * percentage)
+      );
+    };
+
+  ```
+
+- 달력 일자 렌더링 및 잔디 찍기
+
+  ```javascript
+
+    const renderDates = (renderingDateObj, infectsPerDay, legends) => {
+      const lastMonthDates = getLastMonthDates(renderingDateObj);
+      const currentMonthDates = getCurrentMonthDates(renderingDateObj);
+      const $totalDates = document.createDocumentFragment();
+
+      // 일별 확진자 범주화
+      const legendedInfects = infectsPerDay.map(infect => {
+        return legends.reduce((legendIdx, legend, idx) => {
+          if (infect > legend) return idx + 1;
+          return legendIdx;
+        }, 0);
+      });
+
+      const attachDate = date => {
+        const $span = document.createElement('span');
+        const isSunday = isSund(
+          new Date(
+            renderingDateObj.getFullYear(),
+            renderingDateObj.getMonth(),
+            date
+          )
+        );
+
+        $span.textContent = `${date}`;
+
+        // 요구 사항 5. 일요일 빨간색 표시
+        if (isSunday) $span.style.color = 'red';
+
+        $totalDates.appendChild($span);
+
+        return $span;
+      };
+
+      // 저번 달 날짜 투명화
+      lastMonthDates.forEach(date => {
+        const $date = attachDate(date);
+        $date.textContent = '';
+        $date.style.backgroundColor = 'transparent';
+      });
+
+      // 이번 달 날짜 렌더링
+      currentMonthDates.forEach((date, idx) => {
+        const $date = attachDate(date);
+
+        // 잔디 찍기
+        $date.style.backgroundColor = `${legendColors[legendedInfects[idx]]}`;
+
+        // hover 표시
+        const $numInfection = document.createElement('div');
+        $numInfection.classList.add('num-infection');
+        $numInfection.textContent = `${infectsPerDay[idx]} 명`;
+        $date.appendChild($numInfection);
+
+        // 확진자 데이터 없는 날
+        if (idx >= infectsPerDay.length) {
+          $date.style.backgroundColor = 'gray';
+          $numInfection.textContent = `murph!!!!!!`;
+        }
+      });
+
+      $dates.appendChild($totalDates);
+  };
+
+  ```
 
 ### 배근아
 - COVID-ING 전체 디자인 
