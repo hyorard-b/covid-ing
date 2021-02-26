@@ -21,6 +21,11 @@ const initCalendar = async renderingDate => {
     getInitialDayCount()
   );
 
+  if (!infectsPerDay) {
+    renderWeekDays();
+    return false;
+  }
+
   const legends = renderLegends(infectsPerDay);
 
   renderWeekDays();
@@ -33,10 +38,17 @@ const changeCalendar = async renderingDate => {
     getDifMonthDayCount(renderingDate)
   );
 
+  if (!infectsPerDay) {
+    clearCalendar();
+    return false;
+  }
+
   const legends = renderLegends(infectsPerDay);
 
   clearCalendar();
   renderCalendar(renderingDate, infectsPerDay, legends);
+
+  return true;
 };
 
 export { initCalendar, changeCalendar };
