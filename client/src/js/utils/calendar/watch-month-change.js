@@ -6,22 +6,28 @@ const $prevMonthBtn = document.querySelector('.material-icons.left');
 const $nextMonthBtn = document.querySelector('.material-icons.right');
 
 const watchMonthChange = () => {
-  $prevMonthBtn.onclick = () => {
-    const { renderingDate } = globalStates;
+  $prevMonthBtn.onclick = async () => {
+    const prevMonth = subMonths(globalStates.renderingDate, 1);
+    globalStates.renderingDate = prevMonth;
 
-    const prevMonthDate = subMonths(renderingDate, 1);
-    globalStates.renderingDate = prevMonthDate;
+    const isChanged = await changeCalendar(globalStates.renderingDate);
 
-    changeCalendar(globalStates.renderingDate);
+    if (!isChanged) {
+      const curMonth = addMonths(globalStates.renderingDate, 1);
+      globalStates.renderingDate = curMonth;
+    }
   };
 
-  $nextMonthBtn.onclick = () => {
-    const { renderingDate } = globalStates;
+  $nextMonthBtn.onclick = async () => {
+    const nextMonth = addMonths(globalStates.renderingDate, 1);
+    globalStates.renderingDate = nextMonth;
 
-    const nextMonthDate = addMonths(renderingDate, 1);
-    globalStates.renderingDate = nextMonthDate;
+    const isChanged = await changeCalendar(globalStates.renderingDate);
 
-    changeCalendar(globalStates.renderingDate);
+    if (!isChanged) {
+      const curMonth = subMonths(globalStates.renderingDate, 1);
+      globalStates.renderingDate = curMonth;
+    }
   };
 };
 
