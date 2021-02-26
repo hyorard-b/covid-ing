@@ -1,7 +1,10 @@
 @import './common';
 
+
+//차트 배경색
 #covid-chart {
-  background: var(--main-bg);
+  background: var(--fix-white-text);
+  border-radius: 5px
 }
 
 .section-tab {
