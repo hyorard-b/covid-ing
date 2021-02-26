@@ -3,6 +3,8 @@ import getInfects from '../api/infection';
 const getInfectPerDay = async (startDay, dayCount) => {
   const data = await getInfects(startDay, dayCount);
 
+  if (!data) return data;
+
   // 중복 제거
   const setOfData = [...data].reduce((infects, infect) => {
     const isDuplicated =

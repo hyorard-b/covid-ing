@@ -11,6 +11,8 @@ const getInfects = async (startDay, endDay) => {
   const url = `${INFECT_URL + dayBefore}/${endDay}`;
   const { data } = await axios.get(url);
 
+  if (data.error) return false;
+
   return data;
 };
 

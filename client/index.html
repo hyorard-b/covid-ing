@@ -46,11 +46,10 @@
           <li class="nav-item">
             <span class="material-icons"> terrain </span> 지역별 확진자
           </li>
+          <li class="nav-item nav-explore-item">
+            <span class="material-icons"> explore </span> 인접 선별 진료소
+          </li>
         </ul>
-        <div class="close-health">
-          <span class="close-health--heading">인접 선별 진료소</span>
-          <div class="close-health--map"></div>
-        </div>
       </nav>
       <header class="header">
         <div class="side-nav-container">
@@ -236,6 +235,19 @@
             </li>
           </ul>
         </section>
+        <section class="clinic-map">
+          <h2 class="map--header">인접 선별 진료소</h2>
+          <div class="map--container">
+            <div id="map" style="width: 400px; height: 300px"></div>
+            <ul class="clinic-list">
+              <li class="clinic current-location">현재 위치</li>
+            </ul>
+          </div>
+          <div class="map-btn">
+            <button class="left-btn"><</button>
+            <button class="right-btn">></button>
+          </div>
+        </section>
       </section>
       <section class="popup-container">
         <div class="popup">
@@ -265,19 +277,6 @@
           </div>
         </div>
         <div class="popup-overlay"></div>
-      </section>
-      <section class="clinic-map">
-        <h2 class="map--header">인접 선별 진료소</h2>
-        <div class="map--container">
-          <div id="map" style="width: 400px; height: 300px"></div>
-          <ul class="clinic-list">
-            <li class="clinic current-location">현재 위치</li>
-          </ul>
-        </div>
-        <div class="map-btn">
-          <button class="left-btn"><</button>
-          <button class="right-btn">></button>
-        </div>
       </section>
       <div class="go-to-top">
         <span class="scroll-arrow material-icons">double_arrow</span>

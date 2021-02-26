@@ -6,14 +6,15 @@ body {
 }
 
 .side-nav {
-  position: absolute;
-  left: 0;
-  width: 300px;
+  position: fixed;
+  top: 150px;
+  left: -280px;
+  width: 280px;
   background-color: var(--main-bg);
   z-index: 1;
   transition: transform 0.5s;
   border-radius: 20px;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,11 +25,15 @@ body {
   border: 1px solid var(--fix-border);
 }
 
+.side-nav.acitve {
+  position: sticky;
+}
+
 .side-nav-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 25px 25px;
+  padding: 0 20px 10px;
   width: 90%;
   font-size: 1.8rem;
   border-bottom: 1px solid var(--fix-border);
@@ -40,12 +45,11 @@ body {
 }
 
 .side-nav.active {
-  transform: translate3d(-315px, 0, 0);
+  transform: translate3d(400px, 0, 0);
 }
 
 .nav-list {
-  margin: 50px 0;
-  padding: 35px 0;
+  padding: 35px 0 0;
 }
 
 .nav-item {
@@ -58,17 +62,4 @@ body {
 
 .nav-item > .material-icons {
   margin-right: 5px;
-}
-
-.close-health {
-  width: 90%;
-  padding: 35px 25px;
-  border-bottom: 1px solid var(--fix-border);
-}
-
-.close-health--map {
-  background-color: #eee;
-  margin-top: 25px;
-  width: 100%;
-  height: 200px;
 }
