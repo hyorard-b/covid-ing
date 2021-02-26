@@ -8,7 +8,7 @@
     width: 300px;
     height: 200px;
     // background: #FFFFFF;
-    background: var(--popup-bg-color);
+    background: var(--main-bg);
     border-radius: 10px;
     top: 25%;
     left: 50%;
@@ -64,11 +64,11 @@
     }
 
     .light-mode-text {
-      color: var(--popup-lightSpan-color);
+      color: var(--main-text);
     }
 
     .dark-mode-text {
-      color: var(--popup-darkSpan-color);
+      color: var(--main-text);
       left: 4px;
     }
 
@@ -80,7 +80,8 @@
       font-size: 20px;
       border-radius: 5px;
       box-shadow: 0px 0px 10px #777777;
-      background: var(--popup-lightImg-color);
+      background: var(--popup-light-icon-bg);
+      color: var(--popup-dark-icon-bg);
     }
 
     .dark-mode-icon {
@@ -91,6 +92,8 @@
       font-size: 20px;
       border-radius: 5px;
       box-shadow: 0px 0px 10px #777777;
+      background: var(--popup-dark-icon-bg);
+      color: var(--popup-light-icon-bg);
     }
   }
 
@@ -109,7 +112,7 @@
   .btn-close {
     width: 250px;
     height: 30px;
-    background: var(--popup-btn-color);
+    background: var(--popup-btn-bg);
     position: absolute;
     left: 9%;
     bottom: 10%;
@@ -117,6 +120,6 @@
     border-radius: 5px;
     border: 0;
     outline: 0;
-    color: var(--popup-closeBtn-color);
+    color: var(--main-text);
   }
 }

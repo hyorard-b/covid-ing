@@ -8,10 +8,17 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://spoqa.github.io" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="preload" as="style" href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"
+    />
 
     <script
       defer
@@ -24,7 +31,6 @@
     <link rel="icon" href="./media/image/favicon.ico" />
     <title>Covid-ing</title>
   </head>
-
   <body>
     <div class="content-container">
       <nav class="side-nav">
@@ -46,7 +52,7 @@
           <li class="nav-item">
             <span class="material-icons"> terrain </span> 지역별 확진자
           </li>
-          <li class="nav-item nav-explore-item">
+          <li class="nav-item">
             <span class="material-icons"> explore </span> 인접 선별 진료소
           </li>
         </ul>
@@ -143,7 +149,7 @@
           <div class="local--header">
             <h2 class="header__index">지역별</h2>
             <p class="header__total-infection">총 확진자</p>
-            <p class="header__prev-infection">어제 확진자</p>
+            <p class="header__prev-infection">오늘 확진자</p>
           </div>
           <!-- class="dark" / "light" 배경색 구분 -->
           <ul class="local--list" aria-label="지역별 확진자 목록">
@@ -239,13 +245,19 @@
           <h2 class="map--header">인접 선별 진료소</h2>
           <div class="map--container">
             <div id="map" style="width: 400px; height: 300px"></div>
-            <ul class="clinic-list">
-              <li class="clinic current-location">현재 위치</li>
-            </ul>
+            <div class="carousel-container">
+              <div class="view-container">
+                <div class="inner">
+                  <div class="clinic current-location">
+                    <div class="clinic-text">현재 위치</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="map-btn">
-            <button class="left-btn"><</button>
-            <button class="right-btn">></button>
+            <span class="left-btn material-icons"> arrow_back_ios_new </span>
+            <span class="right-btn material-icons"> arrow_forward_ios </span>
           </div>
         </section>
       </section>
