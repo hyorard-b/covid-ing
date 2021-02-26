@@ -52,7 +52,7 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 - [코로나-19 시도 발생 현황](https://www.data.go.kr/data/15043378/openapi.do)
 
 지도 API  
-- [카카오 맵](ㅅhttps://apis.map.kakao.com/)
+- [카카오 맵](https://apis.map.kakao.com/)
   
 ---
   
@@ -66,7 +66,8 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 - 헤더  
 - 사이드 네비게이션  
 - 월별 확진자 현황  
-  
+<br>
+
 **감염 현황 데이터 형식**  
   
 ```json
@@ -121,6 +122,7 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
   }
 ]
 ```
+<br>
   
 **감염 현황 데이터 정제**   
 
@@ -160,6 +162,7 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
     return dailyInfects;
 };
 ```
+<br>
   
 **월 별 감염 현황 범주 계산**  
   
@@ -175,6 +178,7 @@ const calcInfectLegend = infectsPerDay => {
   );
 };
 ```
+<br>
   
 **달력 일자 렌더링 및 잔디 찍기**  
   
@@ -249,6 +253,7 @@ const renderDates = (renderingDateObj, infectsPerDay, legends) => {
 
 - COVID-ING 웹페이지 디자인 
 - 지역별 확진자 (시도 발생 현황 api)
+<br>
   
 **지역별 확진자 데이터**  
   
@@ -271,6 +276,8 @@ const getCityData = async () => {
 
 export default getCityData;
 ```
+<br>
+
   
 **지역별 확진자 아코디언 ui**  
   
@@ -307,7 +314,6 @@ const isActive = e => {
 };
 
 document.querySelector('.local--list').addEventListener('click', isActive);
-  
 ```
 <br>
   
@@ -317,6 +323,7 @@ document.querySelector('.local--list').addEventListener('click', isActive);
 - 일별/월별 확진자 탭 ui
 - 일별 확진자 그래프 (chart.js + 코로나 API)
 - 인접 선별 진료소 (map API)
+<br>
   
 **chart part**
   
@@ -328,7 +335,8 @@ const confirmedPerson = await getInfectPerDay(
   getToday()
 );
 ```
-  
+<br>
+
 (7일전 날짜 계산)  
   
 ```js
@@ -339,6 +347,7 @@ const getsevendaysBefore = () => {
   return sevendaysBefore;
 };
 ```
+<br>
   
 (차트 x축 날짜 입력)  
   
@@ -354,6 +363,7 @@ const getsevenDays = () => {
   return days.reverse();
 };
 ```
+<br>
   
 **map part**  
   
@@ -393,6 +403,7 @@ for (let i = 0; i < data.length; i++) {
   data.sort(objectSort);
 }
 ```
+<br>
   
 --- 
   
