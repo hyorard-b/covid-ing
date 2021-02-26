@@ -1,4 +1,5 @@
 # 코로나-19 확진자 정보를 간단하게, COVID-ING
+<br>
 
 ![license](https://img.shields.io/badge/license-MIT-brightgreen)  
 ![webpack](https://img.shields.io/badge/webpack-5.23.0-lightblue) ![Babel](https://img.shields.io/badge/Babel-7.12.17-yellow)  
@@ -130,7 +131,7 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
   const getInfectPerDay = async (startDay, dayCount) => {
     const data = await getInfects(startDay, dayCount);
 
-    if (!data) return data;
+    if (!data) return false;
 
     // 중복 제거
     const setOfData = [...data].reduce((infects, infect) => {
