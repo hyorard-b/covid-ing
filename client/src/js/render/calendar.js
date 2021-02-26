@@ -39,7 +39,6 @@ const changeCalendar = async renderingDate => {
   );
 
   if (!infectsPerDay) {
-    clearCalendar();
     return false;
   }
 
