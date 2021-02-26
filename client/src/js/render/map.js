@@ -2,7 +2,7 @@ const mapHandler = () => {
 
   const $leftBtn = document.querySelector('.left-btn');
   const $rightBtn = document.querySelector('.right-btn');
-  const $clinicList = document.querySelector('.clinic-list');
+  const $clinicList = document.querySelector('.view-container');
 
   let lat = 0;
   let lon = 0;
@@ -20,10 +20,10 @@ const mapHandler = () => {
       });
 
       let mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-      mapOption = {
-        center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
-        level: 5 // 지도의 확대 레벨
-      };
+        mapOption = {
+          center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+          level: 6 // 지도의 확대 레벨
+        };
 
       let map = new kakao.maps.Map(mapContainer, mapOption);
 
@@ -77,8 +77,8 @@ const mapHandler = () => {
           nearDatas = data;
 
           //진료소 리스트 동적 생성
-          nearDatas.forEach(nearData => {
-            $clinicList.innerHTML += `<li class="clinic">${nearData.place_name.replace('코로나19 ', '')}</li>`
+          nearDatas.forEach((nearData, i) => {
+            $clinicList.innerHTML += `<div class="inner clinic"><div>${i + 1}.${nearData.place_name.replace('코로나19 ', ' ')}</div></div>`
           });
 
           // 지도에 표시할 선을 생성합니다
@@ -128,22 +128,21 @@ const mapHandler = () => {
 
       function panTo() {
         // 이동할 위도 경도 위치를 생성합니다 
-        let moveLatLon = new kakao.maps.LatLng(nearDatas[nowView-1].y, nearDatas[nowView-1].x);
-        
+        let moveLatLon = new kakao.maps.LatLng(nearDatas[nowView - 1].y, nearDatas[nowView - 1].x);
+
         // 지도 중심을 부드럽게 이동시킵니다
         // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-        map.panTo(moveLatLon);            
+        map.panTo(moveLatLon);
       }
+      let move = 0;
 
       $leftBtn.onclick = () => {
-        if(nowView === 0) {
-          [...$clinicList.children].forEach(clinic => {
-            clinic.classList.remove('current-location');
-          });
-  
-          [...$clinicList.children][nowView].classList.add('current-location');
-        }
+        if (nowView === 1) return;
         nowView -= 1;
+
+        
+        move += 100;
+        document.querySelector('.view-container').style.transform = `translate(${move}vw)`;
 
         panTo();
 
@@ -153,11 +152,15 @@ const mapHandler = () => {
 
         [...$clinicList.children][nowView].classList.add('current-location');
       };
-    
+
+
       $rightBtn.onclick = () => {
-        if(nowView === nearDatas.length) return;
+        if (nowView === nearDatas.length) return;
         console.log(nowView);
         nowView += 1;
+
+        move -= 100;
+        document.querySelector('.view-container').style.transform = `translate(${move}vw)`;
 
         panTo();
 
@@ -171,6 +174,6 @@ const mapHandler = () => {
   })
 };
 
-  
+
 
 export default mapHandler;

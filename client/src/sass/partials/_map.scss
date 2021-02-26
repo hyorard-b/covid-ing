@@ -1,47 +1,86 @@
 @import './common';
 
-.clinic-map{
+.clinic-map {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 
-  .map--header{
+  .map--header {
     display: block;
     width: 200px;
     margin: 0 auto;
+    text-align: center;
+    color: var(--main-text);
+    font-size: 1.4rem;
+    font-weight: 700;
   }
 
-  .map--container{
-    width: 600px;
+  .map--container {
+    width: 720px;
     margin: 0 auto;
-    #map{
-      // margin: 20px auto;
-      display: inline-block;
+
+    #map {
+      margin: 20px auto;
     }
 
-    .clinic-list{
-      display: inline-block;
-      vertical-align: top;
-      font-size: 13px;
+    .carousel-container {
+      overflow: hidden;
     }
 
-    //li 요소
-    .clinic{
+    .view-container {
+      display: flex;
+      position: absolute;
+      left: 0;
+    }
+
+    .inner {
+      width: 100vw;
+      text-align: center;
+      // float: left;
+      // transform: translate3d(-3%, 0, 0);
+
+      div {
+        width: 720px;
+      }
+    }
+
+    //선별 진료소
+    .clinic {
       margin-bottom: 5px;
+      border-radius: 10px;
+      color: var(--main-text);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .clinic-text {
+      width: 10px;
     }
   }
-  
 
-  .map-btn{
+
+  .map-btn {
     position: absolute;
     display: inline-block;
-    width: 150px;
-    // margin: 0 auto;
-    top: 290px;
-    right: 60px;
+    width: 100%;
 
+    .left-btn,
+    .right-btn {
+      cursor: pointer;
+      color: var(--main-text);
+
+    }
+
+    .left-btn {
+      position: absolute;
+      top: -180px;
+      left: 100px;
+    }
+
+    .right-btn {
+      position: absolute;
+      top: -180px;
+      right: 100px;
+    }
   }
 
-  .current-location{
-    background: yellow;
-  }
 }

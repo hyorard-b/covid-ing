@@ -1,58 +1,65 @@
 import Chart from 'chart.js';
-import { format, subDays } from 'date-fns';
+import {
+  format,
+  subDays
+} from 'date-fns';
 import getInfectPerDay from './infects';
 
 const myChartOne = document.getElementById('covid-chart').getContext('2d');
 
+const renderChart = () => {
+
+  barChart();
+  
+};
+
 const barChart = async () => {
+
   const confirmedPerson = await getInfectPerDay(
     getsevendaysBefore(),
     getToday()
   );
 
-  // 다크모드 컬러 예시
-  // const fontColor = localStorage.getItem('darkmode') === 'light' ? '#fff' : '#000';
-
   new Chart(myChartOne, {
     type: 'line',
     data: {
       labels: getsevenDays(),
-      datasets: [
-        {
-          label: '일별 확진자',
-          data: confirmedPerson,
-          backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-          borderColor: ['rbga(255, 99, 132, 0.3']
-        }
-      ]
+      datasets: [{
+        label: '일별 확진자',
+        data: confirmedPerson,
+        backgroundColor: ['rgba(190, 248, 177, 0.7)'],
+        borderColor: ['rbga(255, 99, 132, 0.3']
+      }]
     },
     options: {
       responsive: false,
       scales: {
         // X축 색상 변경
-        xAxes: [
-          {
-            ticks: {
-              fontColor: 'rgba(12, 13, 13, 1)'
-              // fontSize: 14
-            }
+        xAxes: [{
+          ticks: {
+            fontColor: 'rgba(0, 0, 0, 1)'
+          },
+          gridLines: {
+            display: true,
+            color: "rgba(0, 0, 0, 0.3)"
           }
-        ],
-        yAxes: [
-          {
-            ticks: {
-              // ?? 뭔지 잘 모르겠음
-              beginAtZero: true,
-              // stepSize: 2,
-              fontColor: 'rgba(12, 13, 13, 1)'
-              // fontSize: 14,
-            }
+        }],
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            stepSize: 100,
+            fontColor: 'rgba(0, 0, 0, 1)'
+          },
+          gridLines: {
+            display: true,
+            color: "rgba(0, 0, 0, 0.3)"
           }
-        ]
+        }]
       }
     }
   });
 };
+
 
 const getToday = () => {
   const date = new Date();
@@ -86,4 +93,4 @@ const getsevenDays = () => {
   return days.reverse();
 };
 
-export default barChart;
+export default renderChart;
