@@ -194,6 +194,7 @@ const calcInfectLegend = infectsPerDay => {
 
 - COVID-ING 웹페이지 디자인 
 - 지역별 확진자 (시도 발생 현황 api)
+- 스크롤 상단 이동
 <br>
   
 **지역별 확진자 데이터**  
