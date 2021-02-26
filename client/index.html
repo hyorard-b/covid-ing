@@ -8,10 +8,17 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://spoqa.github.io" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="preload" as="style" href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css"
+    />
 
     <script
       defer
@@ -24,290 +31,331 @@
     <link rel="icon" href="./media/image/favicon.ico" />
     <title>Covid-ing</title>
   </head>
-<body>
-  <div class="content-container">
-    <nav class="side-nav">
-      <div class="side-nav-header">
-        <img class="side-header-logo-img" src="./media/image/coviding-logo.png" alt="헤더 로고" />COVID-ING
-      </div>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <span class="material-icons"> public </span> 전국
-        </li>
-        <li class="nav-item">
-          <span class="material-icons"> date_range </span>
-          일별/월별 확진자
-        </li>
-        <li class="nav-item">
-          <span class="material-icons"> terrain </span> 지역별 확진자
-        </li>
-      </ul>
-      <div class="close-health">
-        <span class="close-health--heading">인접 선별 진료소</span>
-        <div class="close-health--map"></div>
-      </div>
-    </nav>
-    <header class="header">
-      <div class="side-nav-container">
-        <span class="material-icons side-nav-btn"> menu </span>
-      </div>
-      <h1>
-        <a class="logo" href="./index.html"><img class="header-logo-img" src="./media/image/coviding-logo.png"
-            alt="헤더 로고" />COVID-ING</a>
-      </h1>
-      <div class="dark-mode-container">
-        <span class="material-icons set-dark-btn"> wb_sunny </span>
-      </div>
-    </header>
-    <section class="main-container">
-      <section class="total-container">
-        <article class="cumulative-confirm">
-          <div class="confirm-header">누적 확진자 수</div>
-          <div class="confirm-content"></div>
-        </article>
-        <article class="today-confirm">
-          <div class="confirm-header">금일 확진자 수</div>
-          <div class="confirm-content"></div>
-        </article>
-        <article class="compare-last-day">
-          <div class="confirm-header">전일 대비</div>
-          <div class="confirm-content"></div>
-        </article>
-      </section>
-      <section class="section-tab">
-        <div class="tab-container">
-          <nav class="tab-nav">
-            <input type="radio" class="tab1 tab" id="tab-day" name="tab" checked="checked" />
-            <label for="tab-day" class="tab-label">일별</label>
-            <input type="radio" class="tab2 tab" id="tab-month" name="tab" />
-            <label for="tab-month" class="tab-label">월별</label>
-          </nav>
-          <div class="tab-content1 active">
-            <canvas id="covid-chart" width="613px" height="344px"></canvas>
-          </div>
-          <div class="tab-content2">
-            <div class="calendar-nav">
-              <div class="year-month">
-                <div class="year"></div>
-                <div class="month"></div>
-              </div>
-              <span class="material-icons left"> keyboard_arrow_left </span>
-              <span class="material-icons right"> keyboard_arrow_right </span>
-            </div>
-            <div class="calendar-grid">
-              <div class="weekdays"></div>
-              <div class="dates"></div>
-            </div>
-
-            <ul class="month-mow-legend">
-              <li class="mow-legend-item">
-                <div class="legend-color-1"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-2"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-3"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-4"></div>
-                <span class="legend-text"></span>
-              </li>
-              <li class="mow-legend-item">
-                <div class="legend-color-5"></div>
-                <span class="legend-text"></span>
-              </li>
-            </ul>
-          </div>
+  <body>
+    <div class="content-container">
+      <nav class="side-nav">
+        <div class="side-nav-header">
+          <img
+            class="side-header-logo-img"
+            src="./media/image/coviding-logo.png"
+            alt="헤더 로고"
+          />COVID-ING
         </div>
-      </section>
-      <section class="local-container">
-        <div class="local--header">
-          <h2 class="header__index">지역별</h2>
-          <p class="header__total-infection">총 확진자</p>
-          <p class="header__prev-infection">오늘 확진자</p>
-        </div>
-        <!-- class="dark" / "light" 배경색 구분 -->
-        <ul class="local--list" aria-label="지역별 확진자 목록">
-          <li>
-            <div id="city-15" class="has-local-data local__item">
-              <!-- 서울특별시 -->
-            </div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <span class="material-icons"> public </span> 전국
           </li>
-          <li>
-            <div class="local__item">
-              <p class="local__city">경기도</p>
-              <span class="arrow material-icons">keyboard_arrow_down</span>
-            </div>
-            <div class="local__sub-list">
-              <div id="city-12" class="has-local-data local__details">
-                <!-- 인천광역시 -->
-              </div>
-            </div>
+          <li class="nav-item">
+            <span class="material-icons"> date_range </span>
+            일별/월별 확진자
           </li>
-          <li>
-            <div id="city-7" class="has-local-data local__item">
-              <!-- 강원도 -->
-            </div>
+          <li class="nav-item">
+            <span class="material-icons"> terrain </span> 지역별 확진자
           </li>
-          <li>
-            <div class="local__item">
-              <p class="local__city">경상도</p>
-              <span class="arrow material-icons">keyboard_arrow_down</span>
-            </div>
-            <div class="local__sub-list">
-              <div id="city-13" class="has-local-data local__details">
-                <!-- 대구 -->
-              </div>
-              <div id="city-14" class="has-local-data local__details">
-                <!-- 부산 -->
-              </div>
-              <div id="city-9" class="has-local-data local__details">
-                <!-- 울산 -->
-              </div>
-              <div id="city-2" class="has-local-data local__details">
-                <!-- 경북 -->
-              </div>
-              <div id="city-1" class="has-local-data local__details">
-                <!-- 경남 -->
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="local__item">
-              전라도
-              <span class="arrow material-icons">keyboard_arrow_down</span>
-            </div>
-            <div class="local__sub-list">
-              <div id="city-11" class="has-local-data local__details">
-                <!-- 광주 -->
-              </div>
-              <div id="city-4" class="has-local-data local__details">
-                <!-- 전북 -->
-              </div>
-              <div id="city-3" class="has-local-data local__details">
-                <!-- 전남 -->
-              </div>
-            </div>
-          </li>
-          <li>
-            <div id="city-0" class="has-local-data local__item">
-              <!-- 제주 -->
-            </div>
-          </li>
-          <li>
-            <div class="local__item">
-              충청도
-              <span class="arrow material-icons">keyboard_arrow_down</span>
-            </div>
-            <div class="local__sub-list">
-              <div id="city-8" class="has-local-data local__details">
-                <!-- 세종 -->
-              </div>
-              <div id="city-10" class="has-local-data local__details">
-                <!-- 대전 -->
-              </div>
-              <div id="city-6" class="has-local-data local__details">
-                <!-- 충북 -->
-              </div>
-              <div id="city-5" class="has-local-data local__details">
-                <!-- 충남 -->
-              </div>
-            </div>
+          <li class="nav-item">
+            <span class="material-icons"> explore </span> 인접 선별 진료소
           </li>
         </ul>
-      </section>
-      <section class="clinic-map">
-        <h2 class="map--header">인접 선별 진료소</h2>
-        <div class="map--container">
-          <div id="map" style="width: 400px; height: 300px"></div>
-          <div class="carousel-container">
-            <div class="view-container">
-              <div class="inner">
-                <div class="clinic current-location">
-                  <div class=clinic-text>현재 위치</div> 
+      </nav>
+      <header class="header">
+        <div class="side-nav-container">
+          <span class="material-icons side-nav-btn"> menu </span>
+        </div>
+        <h1>
+          <a class="logo" href="./index.html"
+            ><img
+              class="header-logo-img"
+              src="./media/image/coviding-logo.png"
+              alt="헤더 로고"
+            />COVID-ING</a
+          >
+        </h1>
+        <div class="dark-mode-container">
+          <span class="material-icons set-dark-btn"> wb_sunny </span>
+        </div>
+      </header>
+      <section class="main-container">
+        <section class="total-container">
+          <article class="cumulative-confirm">
+            <div class="confirm-header">누적 확진자 수</div>
+            <div class="confirm-content"></div>
+          </article>
+          <article class="today-confirm">
+            <div class="confirm-header">금일 확진자 수</div>
+            <div class="confirm-content"></div>
+          </article>
+          <article class="compare-last-day">
+            <div class="confirm-header">전일 대비</div>
+            <div class="confirm-content"></div>
+          </article>
+        </section>
+        <section class="section-tab">
+          <div class="tab-container">
+            <nav class="tab-nav">
+              <input
+                type="radio"
+                class="tab1 tab"
+                id="tab-day"
+                name="tab"
+                checked="checked"
+              />
+              <label for="tab-day" class="tab-label">일별</label>
+              <input type="radio" class="tab2 tab" id="tab-month" name="tab" />
+              <label for="tab-month" class="tab-label">월별</label>
+            </nav>
+            <div class="tab-content1 active">
+              <canvas id="covid-chart" width="613px" height="344px"></canvas>
+            </div>
+            <div class="tab-content2">
+              <div class="calendar-nav">
+                <div class="year-month">
+                  <div class="year"></div>
+                  <div class="month"></div>
+                </div>
+                <span class="material-icons left"> keyboard_arrow_left </span>
+                <span class="material-icons right"> keyboard_arrow_right </span>
+              </div>
+              <div class="calendar-grid">
+                <div class="weekdays"></div>
+                <div class="dates"></div>
+              </div>
+
+              <ul class="month-mow-legend">
+                <li class="mow-legend-item">
+                  <div class="legend-color-1"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-2"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-3"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-4"></div>
+                  <span class="legend-text"></span>
+                </li>
+                <li class="mow-legend-item">
+                  <div class="legend-color-5"></div>
+                  <span class="legend-text"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="local-container">
+          <div class="local--header">
+            <h2 class="header__index">지역별</h2>
+            <p class="header__total-infection">총 확진자</p>
+            <p class="header__prev-infection">오늘 확진자</p>
+          </div>
+          <!-- class="dark" / "light" 배경색 구분 -->
+          <ul class="local--list" aria-label="지역별 확진자 목록">
+            <li>
+              <div id="city-15" class="has-local-data local__item">
+                <!-- 서울특별시 -->
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p class="local__city">경기도</p>
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-12" class="has-local-data local__details">
+                  <!-- 인천광역시 -->
+                </div>
+              </div>
+            </li>
+            <li>
+              <div id="city-7" class="has-local-data local__item">
+                <!-- 강원도 -->
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                <p class="local__city">경상도</p>
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-13" class="has-local-data local__details">
+                  <!-- 대구 -->
+                </div>
+                <div id="city-14" class="has-local-data local__details">
+                  <!-- 부산 -->
+                </div>
+                <div id="city-9" class="has-local-data local__details">
+                  <!-- 울산 -->
+                </div>
+                <div id="city-2" class="has-local-data local__details">
+                  <!-- 경북 -->
+                </div>
+                <div id="city-1" class="has-local-data local__details">
+                  <!-- 경남 -->
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                전라도
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-11" class="has-local-data local__details">
+                  <!-- 광주 -->
+                </div>
+                <div id="city-4" class="has-local-data local__details">
+                  <!-- 전북 -->
+                </div>
+                <div id="city-3" class="has-local-data local__details">
+                  <!-- 전남 -->
+                </div>
+              </div>
+            </li>
+            <li>
+              <div id="city-0" class="has-local-data local__item">
+                <!-- 제주 -->
+              </div>
+            </li>
+            <li>
+              <div class="local__item">
+                충청도
+                <span class="arrow material-icons">keyboard_arrow_down</span>
+              </div>
+              <div class="local__sub-list">
+                <div id="city-8" class="has-local-data local__details">
+                  <!-- 세종 -->
+                </div>
+                <div id="city-10" class="has-local-data local__details">
+                  <!-- 대전 -->
+                </div>
+                <div id="city-6" class="has-local-data local__details">
+                  <!-- 충북 -->
+                </div>
+                <div id="city-5" class="has-local-data local__details">
+                  <!-- 충남 -->
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="clinic-map">
+          <h2 class="map--header">인접 선별 진료소</h2>
+          <div class="map--container">
+            <div id="map" style="width: 400px; height: 300px"></div>
+            <div class="carousel-container">
+              <div class="view-container">
+                <div class="inner">
+                  <div class="clinic current-location">
+                    <div class="clinic-text">현재 위치</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="map-btn">
-          <span class="left-btn material-icons">
-            arrow_back_ios_new
-          </span>
-          <span class="right-btn material-icons">
-            arrow_forward_ios
-          </span>
-        </div>
+          <div class="map-btn">
+            <span class="left-btn material-icons"> arrow_back_ios_new </span>
+            <span class="right-btn material-icons"> arrow_forward_ios </span>
+          </div>
+        </section>
       </section>
-    </section>
-    <section class="popup-container">
-      <div class="popup">
-        <label for="light-btn" class="light-label labels">
-          <span class="material-icons light-mode-icon"> light_mode </span>
-          <span class="light-mode-text">라이트 모드</span>
-        </label>
-        <input type="radio" class="popup-btn" id="light-btn" name="dark-mode" checked="checked" />
-        <label for="dark-btn" class="dark-label labels">
-          <span class="material-icons dark-mode-icon"> dark_mode </span>
-          <span class="dark-mode-text">다크 모드</span>
-        </label>
-        <input type="radio" class="popup-btn" id="dark-btn" name="dark-mode" />
-        <div>
-          <button class="btn-close">닫기</button>
+      <section class="popup-container">
+        <div class="popup">
+          <label for="light-btn" class="light-label labels">
+            <span class="material-icons light-mode-icon"> light_mode </span>
+            <span class="light-mode-text">라이트 모드</span>
+          </label>
+          <input
+            type="radio"
+            class="popup-btn"
+            id="light-btn"
+            name="dark-mode"
+            checked="checked"
+          />
+          <label for="dark-btn" class="dark-label labels">
+            <span class="material-icons dark-mode-icon"> dark_mode </span>
+            <span class="dark-mode-text">다크 모드</span>
+          </label>
+          <input
+            type="radio"
+            class="popup-btn"
+            id="dark-btn"
+            name="dark-mode"
+          />
+          <div>
+            <button class="btn-close">닫기</button>
+          </div>
         </div>
+        <div class="popup-overlay"></div>
+      </section>
+      <div class="go-to-top">
+        <span class="scroll-arrow material-icons">double_arrow</span>
       </div>
-      <div class="popup-overlay"></div>
-    </section>
-    <div class="go-to-top">
-      <span class="scroll-arrow material-icons">double_arrow</span>
+      <footer class="footer">
+        <div class="github-container">
+          <ul class="github-list">
+            <li>
+              <a href="https://github.com/green9930" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img
+                      class="profile"
+                      src="./media/image/green9930-profile.jpg"
+                      alt="배근아 깃허브"
+                    />
+                  </div>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />green9930
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/hyorard-b" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img
+                      class="profile"
+                      src="./media/image/hyorard-profile.jpg"
+                      alt="김효성 깃허브"
+                    />
+                  </div>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />hyorard-b
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/choisuhyeok1255" target="_blank">
+                <figure>
+                  <div class="profile-container">
+                    <img
+                      class="profile"
+                      src="./media/image/green9930-profile.jpg"
+                      alt="최수혁 깃허브"
+                    />
+                  </div>
+                  <figcaption class="github-id">
+                    <img
+                      src="./media/image/github-logo.svg"
+                      alt="깃허브 로고"
+                    />choisuhyeok1255
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </div>
-    <footer class="footer">
-      <div class="github-container">
-        <ul class="github-list">
-          <li>
-            <a href="https://github.com/green9930" target="_blank">
-              <figure>
-                <div class="profile-container">
-                  <img class="profile" src="./media/image/green9930-profile.jpg" alt="배근아 깃허브" />
-                </div>
-                <figcaption class="github-id">
-                  <img src="./media/image/github-logo.svg" alt="깃허브 로고" />green9930
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/hyorard-b" target="_blank">
-              <figure>
-                <div class="profile-container">
-                  <img class="profile" src="./media/image/hyorard-profile.jpg" alt="김효성 깃허브" />
-                </div>
-                <figcaption class="github-id">
-                  <img src="./media/image/github-logo.svg" alt="깃허브 로고" />hyorard-b
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/choisuhyeok1255" target="_blank">
-              <figure>
-                <div class="profile-container">
-                  <img class="profile" src="./media/image/green9930-profile.jpg" alt="최수혁 깃허브" />
-                </div>
-                <figcaption class="github-id">
-                  <img src="./media/image/github-logo.svg" alt="깃허브 로고" />choisuhyeok1255
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </div>
-</body>
-
+  </body>
 </html>
