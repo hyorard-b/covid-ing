@@ -5,11 +5,18 @@
 }
 
 .local--header {
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  padding: 15px 60px 15px 40px;
   color: var(--fix-high-text);
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .local--list > li {
   font-size: 1.4rem;
+  font-weight: 700;
   color: var(--main-text);
   border-radius: 5px;
   margin: 7px;
@@ -21,24 +28,7 @@
 
 .local--list > li:nth-child(even) {
   background-color: var(--even-bg);
-}
-
-.local--header {
-  display: flex;
-  position: relative;
-  padding: 20px 60px 20px 40px;
-  justify-content: space-between;
-}
-
-.local__item,
-.local__details {
-  display: flex;
-  position: relative;
-  padding: 20px 30px;
-  border-radius: 5px;
-  justify-content: space-between;
-  border: 1px solid var(--fix-border);
-  transition: all 0.2s ease-in-out;
+  // background-color: #F1F1F1;
 }
 
 .header__index {
@@ -48,6 +38,17 @@
 
 .header__total-infection {
   margin-right: 20px;
+}
+
+.local__item,
+.local__details {
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  border: 1px solid var(--fix-border);
+  border-radius: 5px;
+  padding: 20px 30px;
+  transition: all 0.2s ease-in-out;
 }
 
 .header__total-infection,
@@ -94,12 +95,13 @@
 
 .local--list > li.active {
   position: relative;
-  // margin: 7px;
   background-color: transparent;
+  // margin: 7px;
 
   .local__item {
-    background-color: var(--fix-theme-text);
     border-radius: 5px;
+    background-color: var(--fix-theme-text);
+    color: var(--fix-white-text);
   }
 
   .arrow {
@@ -107,10 +109,10 @@
   }
 
   .local__details {
-    border-radius: 5px;
-    color: #616161;
     display: flex;
-    margin: 7px 0px;
     border: 1px solid rgba(54, 187, 117, 0.3);
+    border-radius: 5px;
+    margin: 7px 0px;
+    color: #616161;
   }
 }
