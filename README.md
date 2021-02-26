@@ -243,6 +243,83 @@ Figma : https://www.figma.com/file/M8MyrYls3YhNMZtG607uXZ/Project-COVID?node-id=
 
 
 ### 최수혁
+- 팝업창 (다크모드)
+- 일별/월별 확진자 탭 ui 구현
+- 일별 확진자 그래프 (chart.js + 코로나 API)
+- 인접 선별 진료소 (map API)
+
+**chart part**
+
+(확진자 수 API)
+```js
+const confirmedPerson = await getInfectPerDay(
+  getsevendaysBefore(),
+  getToday()
+);
+```
+
+(7일전 날짜 계산)
+```js
+const getsevendaysBefore = () => {
+  const today = getToday();
+  const sevendaysBefore = +today - 7 + '';
+
+  return sevendaysBefore;
+};
+```
+
+(차트 x축 날짜 입력)
+```js
+const getsevenDays = () => {
+  const days = [];
+  const date = new Date();
+
+  for (let i = 1; i < 8; i++) {
+    days.push(format(subDays(date, i), 'MM/dd'));
+  }
+
+  return days.reverse();
+};
+```
+
+**map part**
+
+```js
+const distance = [];
+const linePath = [];
+
+for (let i = 0; i < data.length; i++) {
+  const { x, y } = data[i];
+
+  linePath = [new kakao.maps.LatLng(lat, lon),
+              new kakao.maps.LatLng(y, x)];
+
+  let polyline = new kakao.maps.Polyline({
+        path: linePath, 
+              strokeWeight: 5, 
+              strokeColor: '#FFAE00', 
+              strokeOpacity: 0.7, 
+              strokeStyle: 'solid' 
+            });
+
+  // 지도에 직선거리(선) 표시
+  // polyline.setMap(map);
+
+  // 선 길이를 계산해서 distance에 넣어줌
+  distance.push(polyline.getLength());
+
+  // api에서 받은 객체에 직선거리 넣어줌
+  data[i].distance = distance[i];
+
+  //data 안의 객체.distance를 정렬하는 함수
+  function objectSort(a, b) {
+    return a.distance < b.distance ? -1 : a.distance > b.distance ? 1 : 0;
+  }
+
+  //api에서 받은 배열의 객체안에 직선 길이 짧은 순으로 정렬
+  data.sort(objectSort);
+}
+```
 
 --- 
 
