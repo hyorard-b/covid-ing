@@ -1,19 +1,45 @@
-.go-to-top {
-  display: none;
-  position: fixed;
-  opacity: 0.5;
-  transform: rotate(0.75turn);
-  right: 20%;
-  bottom: 10%;
-  z-index: 9999;
-  cursor: pointer;
-  color: var(--fix-theme-text);
+.scroll-arrow {
+  font-size: 60px;
 }
+
+.go-to-top {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  transform: rotate(0.75turn);
+  color: var(--fix-theme-text);
+  cursor: pointer;
+}
+
+.go-to-top.showup {
+  animation: glow 1s infinite alternate;  
+}  
+
+@keyframes glow {
+  0% {
+    opacity: 0;
+  }  
+  20% {
+    opacity: 0.1;
+  }  
+  40% {
+    opacity: 0.3;
+  }  
+  60% {
+    opacity: 0.5;
+  }  
+  80%{
+    opacity: 0.7;
+  }  
+  100% {
+    opacity: 0.9;
+  }  
+}  
 
 .go-to-top:hover {
+  animation-play-state: paused;
   opacity: 1;
-}
-
-.scroll-arrow {
-  font-size: 45px;
 }
